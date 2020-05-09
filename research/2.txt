@@ -1,0 +1,14 @@
+Approach:
+- Use conventional trading strategies, not machine learning or whatever.
+
+
+Todo:
+1. Find a list of trading strategies. The simpler the better.
+2. About 3 could be a good start, ideally 5:
+	- MACD with Bollinger bands (this is the quickstart algorithm)
+	- ?
+	- ?
+3. Explore indicator datasets
+	- What kind of indicator datasets are used and what are the best methods?
+4. Hook up api endpoint to web demo
+	- Expose api endpoint for python strategy script

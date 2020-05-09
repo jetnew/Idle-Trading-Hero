@@ -1,0 +1,29 @@
+Problem formulation:
+- Output an action (buy/sell/nothing), then check if the action was good.
+	- Action choice
+		- Forecast next timestep and buy/sell accordingly
+		- External source of data
+	- Performance measure
+		- Profit/loss for that single timestep
+		- Average balance over n timesteps
+		- Sharpe ratio: (Rp - Rf) / Op
+
+Data format:
+- Rolling window
+
+Model exploration (forecasting)
+- MLP, LSTM, decision trees (sklearn)
+- holt-winters
+- lstm autoencoder
+- pca variants
+
+Model formulation
+- Negative profit as training loss
+
+Online learning algorithms
+- DQN, rainbow DQN
+- PPO, TRPO, HRL
+
+Insights:
+- LSTM Forecasting doesn't work well, suspect most ML won't work.
+- Back to time series analysis: ARIMA, Exponentially weighted moving average
