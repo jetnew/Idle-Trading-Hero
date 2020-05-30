@@ -12,13 +12,30 @@ class Algorithm:
     def accept(self, observation):
         # Integrate incoming new data
         self.indicator = self.indicator.append(pd.Series(observation), ignore_index=True)
+    
+    def balance(self):
+        # Compute the balance remaining
+        self.indicator['balance_change'] = -1 * self.indicator['action'] * self.indicator['O']
+        self.indicator['stock'] = self.indicator['action'].cumsum()
+        self.indicator['balance'] = self.capital + self.indicator['balance_change'].cumsum()
+    
+    def performance(self):
+        self.indicator['return'] = self.indicator['balance'] - self.capital
+        self.indicator['alpha'] = self.indicator['return'] / self.capital
+#         self.indicator['beta'] = 
+        self.indicator['sharpe'] = self.indicator['return'].mean() / self.indicator['return'].std()
+        self.indicator['annual_sharpe'] = 252**0.5 * self.indicator['sharpe']
+        self.indicator['sortino'] = self.indicator['return'].mean() / \
+                                    self.indicator[self.indicator['return'] < 0]['return'].std()
+        
         
     def act(self, observation):
         self.accept(observation)
         self.strategy.action(self.indicator)
-        self.strategy.balance(self.indicator, self.capital)
+        self.balance()
+        self.performance()
         
-    def statistics(self):
+    def statistics(self, k=100):
         return self.indicator.iloc[-1]
     
     def plot_indicators(self, k=100):
@@ -43,7 +60,6 @@ class MACDStrategy:
         self.parameters = parameters  # e.g. Dictionary, {'ema26':26, 'ema12':12, 'ema9':9}
         
     def action(self, indicator):
-        # TODO: Modify actions based on given strategy parameter.
         # Derive the action based on past data
         # action: 1 means buy, -1 means sell, 0 means do nothing
         close = indicator['C']
@@ -57,12 +73,6 @@ class MACDStrategy:
         indicator['trend_macd_diff_prev'] = indicator['trend_macd_diff'].shift(1)
         indicator['action'] = (np.sign(indicator['trend_macd_diff']) \
                                     - np.sign(indicator['trend_macd_diff_prev'])) / 2
-    
-    def balance(self, indicator, capital):
-        # Compute the balance remaining
-        indicator['balance_change'] = -1 * indicator['action'] * indicator['O']
-        indicator['stock'] = indicator['action'].cumsum()
-        indicator['balance'] = capital + indicator['balance_change'].cumsum()
         
     def plot(self, indicator, k=100):
         plt.plot(indicator['trend_macd'][-k:], label='trend_macd')
@@ -79,7 +89,6 @@ class MFIStrategy:
         self.parameters = parameters  # e.g. Dictionary, {'mfi80':80, 'mfi20':20}
         
     def action(self, indicator):
-        # TODO: Modify actions based on given strategy parameter.
         # Derive the action based on past data
         # action: 1 means buy, -1 means sell, 0 means do nothing
         high, low, close, volume = indicator['H'], indicator['L'], indicator['C'], indicator['Volume']
@@ -92,12 +101,6 @@ class MFIStrategy:
         indicator['buy'] = ((indicator['volume_mfi_prev'] < self.parameters['mfi20']) & \
                             (indicator['volume_mfi'] >= self.parameters['mfi20'])).astype(int)
         indicator['action'] = indicator['buy'] - indicator['sell']
-    
-    def balance(self, indicator, capital):
-        # Compute the balance remaining
-        indicator['balance_change'] = -1 * indicator['action'] * indicator['O']
-        indicator['stock'] = indicator['action'].cumsum()
-        indicator['balance'] = capital + indicator['balance_change'].cumsum()
         
     def plot(self, indicator, k=100):
         plt.plot(indicator['volume_mfi'][-k:], label='volume_mfi')
@@ -112,7 +115,6 @@ class RSIStrategy:
         self.parameters = parameters  # e.g. Dictionary, {'rsi70': 70, 'rsi30': 30}
         
     def action(self, indicator):
-        # TODO: Modify actions based on given strategy parameter.
         # Derive the action based on past data
         # action: 1 means buy, -1 means sell, 0 means do nothing
         close = indicator['C']
@@ -125,12 +127,6 @@ class RSIStrategy:
         indicator['buy'] = ((indicator['momentum_rsi_prev'] >= self.parameters['rsi30']) & \
                             (indicator['momentum_rsi'] < self.parameters['rsi30'])).astype(int)
         indicator['action'] = indicator['buy'] - indicator['sell']
-    
-    def balance(self, indicator, capital):
-        # Compute the balance remaining
-        indicator['balance_change'] = -1 * indicator['action'] * indicator['O']
-        indicator['stock'] = indicator['action'].cumsum()
-        indicator['balance'] = capital + indicator['balance_change'].cumsum()
         
     def plot(self, indicator, k=100):
         plt.plot(indicator['momentum_rsi'][-k:], label='momentum_rsi')
