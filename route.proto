@@ -1,3 +1,7 @@
+// RUN THE FOLLOWING COMMAND AFTER EVERY CHANGE
+// $ python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. route.proto
+
+
 syntax = "proto3";
 
 import "google/protobuf/struct.proto";
@@ -11,6 +15,21 @@ service Route {
     
     // Get statistics
     rpc GetStatistics(Tmp) returns (Statistics) {}
+    
+    // Get timeseries
+    rpc GetHistory(HistoryLength) returns (History) {}
+}
+
+message HistoryLength {
+    int32 Length = 1;
+}
+
+message TimeSeries {
+    repeated float Value = 1;
+}
+
+message History {
+    repeated TimeSeries TS = 1;
 }
  
 message Tmp {
@@ -18,18 +37,19 @@ message Tmp {
 }
  
 message Selection {
-    string Strategy = 1;
-    google.protobuf.Struct Parameters = 2;
-    int32 Capital = 3;
+    string Asset = 1;
+    string Strategy = 2;
+    google.protobuf.Struct Parameters = 3;
+    int32 Capital = 4;
 }
 
 message Statistics {
-    float Volume = 1; 
-    float Time = 2;
-    float O = 3;
-    float H = 4;
-    float L = 5;
-    float C = 6;
+    float v = 1; 
+    float t = 2;
+    float o = 3;
+    float h = 4;
+    float l = 5;
+    float c = 6;
     float action = 7;
     float balance_change = 8;
     float stock = 9;

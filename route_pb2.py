@@ -19,11 +19,104 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0broute.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x12\n\x03Tmp\x12\x0b\n\x03tmp\x18\x01 \x01(\x05\"[\n\tSelection\x12\x10\n\x08Strategy\x18\x01 \x01(\t\x12+\n\nParameters\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07\x43\x61pital\x18\x03 \x01(\x05\"\xf5\x01\n\nStatistics\x12\x0e\n\x06Volume\x18\x01 \x01(\x02\x12\x0c\n\x04Time\x18\x02 \x01(\x02\x12\t\n\x01O\x18\x03 \x01(\x02\x12\t\n\x01H\x18\x04 \x01(\x02\x12\t\n\x01L\x18\x05 \x01(\x02\x12\t\n\x01\x43\x18\x06 \x01(\x02\x12\x0e\n\x06\x61\x63tion\x18\x07 \x01(\x02\x12\x16\n\x0e\x62\x61lance_change\x18\x08 \x01(\x02\x12\r\n\x05stock\x18\t \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\n \x01(\x02\x12\x0e\n\x06return\x18\x0b \x01(\x02\x12\r\n\x05\x61lpha\x18\x0c \x01(\x02\x12\x0e\n\x06sharpe\x18\r \x01(\x02\x12\x15\n\rannual_sharpe\x18\x0e \x01(\x02\x12\x0f\n\x07sortino\x18\x0f \x01(\x02\x32_\n\x05Route\x12\x30\n\x13InitialiseAlgorithm\x12\n.Selection\x1a\x0b.Statistics\"\x00\x12$\n\rGetStatistics\x12\x04.Tmp\x1a\x0b.Statistics\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0broute.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x1f\n\rHistoryLength\x12\x0e\n\x06Length\x18\x01 \x01(\x05\"\x1b\n\nTimeSeries\x12\r\n\x05Value\x18\x01 \x03(\x02\"\"\n\x07History\x12\x17\n\x02TS\x18\x01 \x03(\x0b\x32\x0b.TimeSeries\"\x12\n\x03Tmp\x12\x0b\n\x03tmp\x18\x01 \x01(\x05\"j\n\tSelection\x12\r\n\x05\x41sset\x18\x01 \x01(\t\x12\x10\n\x08Strategy\x18\x02 \x01(\t\x12+\n\nParameters\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07\x43\x61pital\x18\x04 \x01(\x05\"\xed\x01\n\nStatistics\x12\t\n\x01v\x18\x01 \x01(\x02\x12\t\n\x01t\x18\x02 \x01(\x02\x12\t\n\x01o\x18\x03 \x01(\x02\x12\t\n\x01h\x18\x04 \x01(\x02\x12\t\n\x01l\x18\x05 \x01(\x02\x12\t\n\x01\x63\x18\x06 \x01(\x02\x12\x0e\n\x06\x61\x63tion\x18\x07 \x01(\x02\x12\x16\n\x0e\x62\x61lance_change\x18\x08 \x01(\x02\x12\r\n\x05stock\x18\t \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\n \x01(\x02\x12\x0e\n\x06return\x18\x0b \x01(\x02\x12\r\n\x05\x61lpha\x18\x0c \x01(\x02\x12\x0e\n\x06sharpe\x18\r \x01(\x02\x12\x15\n\rannual_sharpe\x18\x0e \x01(\x02\x12\x0f\n\x07sortino\x18\x0f \x01(\x02\x32\x89\x01\n\x05Route\x12\x30\n\x13InitialiseAlgorithm\x12\n.Selection\x1a\x0b.Statistics\"\x00\x12$\n\rGetStatistics\x12\x04.Tmp\x1a\x0b.Statistics\"\x00\x12(\n\nGetHistory\x12\x0e.HistoryLength\x1a\x08.History\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
+
+
+_HISTORYLENGTH = _descriptor.Descriptor(
+  name='HistoryLength',
+  full_name='HistoryLength',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Length', full_name='HistoryLength.Length', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=45,
+  serialized_end=76,
+)
+
+
+_TIMESERIES = _descriptor.Descriptor(
+  name='TimeSeries',
+  full_name='TimeSeries',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Value', full_name='TimeSeries.Value', index=0,
+      number=1, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=78,
+  serialized_end=105,
+)
+
+
+_HISTORY = _descriptor.Descriptor(
+  name='History',
+  full_name='History',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='TS', full_name='History.TS', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=107,
+  serialized_end=141,
+)
 
 
 _TMP = _descriptor.Descriptor(
@@ -52,8 +145,8 @@ _TMP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=63,
+  serialized_start=143,
+  serialized_end=161,
 )
 
 
@@ -65,22 +158,29 @@ _SELECTION = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Strategy', full_name='Selection.Strategy', index=0,
+      name='Asset', full_name='Selection.Asset', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Parameters', full_name='Selection.Parameters', index=1,
-      number=2, type=11, cpp_type=10, label=1,
+      name='Strategy', full_name='Selection.Strategy', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Parameters', full_name='Selection.Parameters', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Capital', full_name='Selection.Capital', index=2,
-      number=3, type=5, cpp_type=1, label=1,
+      name='Capital', full_name='Selection.Capital', index=3,
+      number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -97,8 +197,8 @@ _SELECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=65,
-  serialized_end=156,
+  serialized_start=163,
+  serialized_end=269,
 )
 
 
@@ -110,42 +210,42 @@ _STATISTICS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Volume', full_name='Statistics.Volume', index=0,
+      name='v', full_name='Statistics.v', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Time', full_name='Statistics.Time', index=1,
+      name='t', full_name='Statistics.t', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='O', full_name='Statistics.O', index=2,
+      name='o', full_name='Statistics.o', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='H', full_name='Statistics.H', index=3,
+      name='h', full_name='Statistics.h', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='L', full_name='Statistics.L', index=4,
+      name='l', full_name='Statistics.l', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='C', full_name='Statistics.C', index=5,
+      name='c', full_name='Statistics.c', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -226,15 +326,40 @@ _STATISTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=159,
-  serialized_end=404,
+  serialized_start=272,
+  serialized_end=509,
 )
 
+_HISTORY.fields_by_name['TS'].message_type = _TIMESERIES
 _SELECTION.fields_by_name['Parameters'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+DESCRIPTOR.message_types_by_name['HistoryLength'] = _HISTORYLENGTH
+DESCRIPTOR.message_types_by_name['TimeSeries'] = _TIMESERIES
+DESCRIPTOR.message_types_by_name['History'] = _HISTORY
 DESCRIPTOR.message_types_by_name['Tmp'] = _TMP
 DESCRIPTOR.message_types_by_name['Selection'] = _SELECTION
 DESCRIPTOR.message_types_by_name['Statistics'] = _STATISTICS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+HistoryLength = _reflection.GeneratedProtocolMessageType('HistoryLength', (_message.Message,), {
+  'DESCRIPTOR' : _HISTORYLENGTH,
+  '__module__' : 'route_pb2'
+  # @@protoc_insertion_point(class_scope:HistoryLength)
+  })
+_sym_db.RegisterMessage(HistoryLength)
+
+TimeSeries = _reflection.GeneratedProtocolMessageType('TimeSeries', (_message.Message,), {
+  'DESCRIPTOR' : _TIMESERIES,
+  '__module__' : 'route_pb2'
+  # @@protoc_insertion_point(class_scope:TimeSeries)
+  })
+_sym_db.RegisterMessage(TimeSeries)
+
+History = _reflection.GeneratedProtocolMessageType('History', (_message.Message,), {
+  'DESCRIPTOR' : _HISTORY,
+  '__module__' : 'route_pb2'
+  # @@protoc_insertion_point(class_scope:History)
+  })
+_sym_db.RegisterMessage(History)
 
 Tmp = _reflection.GeneratedProtocolMessageType('Tmp', (_message.Message,), {
   'DESCRIPTOR' : _TMP,
@@ -265,8 +390,8 @@ _ROUTE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=406,
-  serialized_end=501,
+  serialized_start=512,
+  serialized_end=649,
   methods=[
   _descriptor.MethodDescriptor(
     name='InitialiseAlgorithm',
@@ -284,6 +409,15 @@ _ROUTE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_TMP,
     output_type=_STATISTICS,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetHistory',
+    full_name='Route.GetHistory',
+    index=2,
+    containing_service=None,
+    input_type=_HISTORYLENGTH,
+    output_type=_HISTORY,
     serialized_options=None,
   ),
 ])

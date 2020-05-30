@@ -3,11 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import json
 
-with open('data/data2/AUD_USD-1588780800-H1-10000.json') as f:
-    data = json.load(f)
-d = {r: [dic[r] for dic in data] for r in data[0]}
-df = pd.DataFrame(d)
-#================= TODO: ENABLE CHOICE OF DATASET ===================
+df_aapl = pd.read_json('data/data3/AAPL-20000103-20200525.json')
+df_googl = pd.read_json('data/data3/GOOGL-20040819-20200525.json')
+df_spy = pd.read_json('data/data3/SPY-20000103-20200525.json')
+df_voo = pd.read_json('data/data3/VOO-20100909-20200525.json')
 
 import time
 import logging
@@ -18,6 +17,14 @@ import grpc
 import route_pb2
 import route_pb2_grpc
 
+Assets = {
+    'AAPL': df_aapl.loc[:100],
+    'GOOGL': df_googl.loc[:100],
+    'SPY': df_spy.loc[:100],
+    'VOO': df_voo.loc[:100],
+}
+
+
 Strategies = {
     'MACD': MACDStrategy,
     'MFI': MFIStrategy,
@@ -26,19 +33,28 @@ Strategies = {
 
 class RouteServicer(route_pb2_grpc.RouteServicer):
     def InitialiseAlgorithm(self, request, context):
+        self.req_asset = request.Asset
         self.req_strat = request.Strategy
         self.req_params = request.Parameters
         self.req_capital = request.Capital
         
         self.strategy = Strategies[self.req_strat](parameters=self.req_params)
-        self.algorithm = Algorithm(indicator=df.loc[:100],
+        self.algorithm = Algorithm(indicator=Assets[self.req_asset],
                                    strategy=self.strategy,
                                    capital=self.req_capital)
-        self.algorithm.act(df.loc[100])
+        self.algorithm.act(Assets[self.req_asset].loc[100])
         return route_pb2.Statistics(**self.algorithm.statistics())
     
     def GetStatistics(self, request, context):
         return route_pb2.Statistics(**self.algorithm.statistics())
+    
+    def GetHistory(self, request, context):
+        k = request.Length
+        matrix = self.algorithm.indicator.values[:k,:].T.tolist()
+        TS = [route_pb2.TimeSeries(Value=matrix[i])
+              for i in range(len(matrix))]
+        return route_pb2.History(TS=TS) 
+        
     
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

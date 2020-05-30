@@ -15,9 +15,13 @@ params.update({
     'ema9': 9,
 })
 
-Selection = route_pb2.Selection(Strategy='MACD',
+Selection = route_pb2.Selection(Asset='AAPL',
+                                 Strategy='MACD',
                                  Parameters=params,
                                  Capital=1000)
+statistics = stub.InitialiseAlgorithm(Selection)
+print(statistics)
 
-feature = stub.InitialiseAlgorithm(Selection)
-print(feature)
+HistoryLength = route_pb2.HistoryLength(Length=10)
+history = stub.GetHistory(HistoryLength)
+print(history)

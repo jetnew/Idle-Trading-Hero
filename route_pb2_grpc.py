@@ -25,6 +25,11 @@ class RouteStub(object):
                 request_serializer=route__pb2.Tmp.SerializeToString,
                 response_deserializer=route__pb2.Statistics.FromString,
                 )
+        self.GetHistory = channel.unary_unary(
+                '/Route/GetHistory',
+                request_serializer=route__pb2.HistoryLength.SerializeToString,
+                response_deserializer=route__pb2.History.FromString,
+                )
 
 
 class RouteServicer(object):
@@ -46,6 +51,13 @@ class RouteServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetHistory(self, request, context):
+        """Get timeseries
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RouteServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -58,6 +70,11 @@ def add_RouteServicer_to_server(servicer, server):
                     servicer.GetStatistics,
                     request_deserializer=route__pb2.Tmp.FromString,
                     response_serializer=route__pb2.Statistics.SerializeToString,
+            ),
+            'GetHistory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetHistory,
+                    request_deserializer=route__pb2.HistoryLength.FromString,
+                    response_serializer=route__pb2.History.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -100,5 +117,21 @@ class Route(object):
         return grpc.experimental.unary_unary(request, target, '/Route/GetStatistics',
             route__pb2.Tmp.SerializeToString,
             route__pb2.Statistics.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetHistory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Route/GetHistory',
+            route__pb2.HistoryLength.SerializeToString,
+            route__pb2.History.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
