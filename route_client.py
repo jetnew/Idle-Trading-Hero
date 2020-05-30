@@ -22,6 +22,10 @@ Selection = route_pb2.Selection(Asset='AAPL',
 statistics = stub.InitialiseAlgorithm(Selection)
 print(statistics)
 
-HistoryLength = route_pb2.HistoryLength(Length=10)
-history = stub.GetHistory(HistoryLength)
-print(history)
+Length = route_pb2.Length(Length=10)
+data = stub.GetData(Length)
+indicators = stub.GetIndicators(Length)
+performances = stub.GetPerformances(Length)
+print(data)
+print(indicators)
+print(performances)

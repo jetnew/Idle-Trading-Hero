@@ -16,18 +16,27 @@ service Route {
     // Get statistics
     rpc GetStatistics(Tmp) returns (Statistics) {}
     
-    // Get timeseries
-    rpc GetHistory(HistoryLength) returns (History) {}
+    // Get past data
+    rpc GetData(Length) returns (History) {}
+    
+    // Get past indicators
+    rpc GetIndicators(Length) returns (History) {}
+    
+    // Get past performances
+    rpc GetPerformances(Length) returns (History) {}
 }
 
-message HistoryLength {
+message Length {
     int32 Length = 1;
 }
 
+// Dictionary entry
 message TimeSeries {
-    repeated float Value = 1;
+    string Key = 1;
+    repeated float Value = 2;
 }
 
+// List of dictionary entries
 message History {
     repeated TimeSeries TS = 1;
 }

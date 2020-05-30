@@ -19,22 +19,22 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0broute.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x1f\n\rHistoryLength\x12\x0e\n\x06Length\x18\x01 \x01(\x05\"\x1b\n\nTimeSeries\x12\r\n\x05Value\x18\x01 \x03(\x02\"\"\n\x07History\x12\x17\n\x02TS\x18\x01 \x03(\x0b\x32\x0b.TimeSeries\"\x12\n\x03Tmp\x12\x0b\n\x03tmp\x18\x01 \x01(\x05\"j\n\tSelection\x12\r\n\x05\x41sset\x18\x01 \x01(\t\x12\x10\n\x08Strategy\x18\x02 \x01(\t\x12+\n\nParameters\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07\x43\x61pital\x18\x04 \x01(\x05\"\xed\x01\n\nStatistics\x12\t\n\x01v\x18\x01 \x01(\x02\x12\t\n\x01t\x18\x02 \x01(\x02\x12\t\n\x01o\x18\x03 \x01(\x02\x12\t\n\x01h\x18\x04 \x01(\x02\x12\t\n\x01l\x18\x05 \x01(\x02\x12\t\n\x01\x63\x18\x06 \x01(\x02\x12\x0e\n\x06\x61\x63tion\x18\x07 \x01(\x02\x12\x16\n\x0e\x62\x61lance_change\x18\x08 \x01(\x02\x12\r\n\x05stock\x18\t \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\n \x01(\x02\x12\x0e\n\x06return\x18\x0b \x01(\x02\x12\r\n\x05\x61lpha\x18\x0c \x01(\x02\x12\x0e\n\x06sharpe\x18\r \x01(\x02\x12\x15\n\rannual_sharpe\x18\x0e \x01(\x02\x12\x0f\n\x07sortino\x18\x0f \x01(\x02\x32\x89\x01\n\x05Route\x12\x30\n\x13InitialiseAlgorithm\x12\n.Selection\x1a\x0b.Statistics\"\x00\x12$\n\rGetStatistics\x12\x04.Tmp\x1a\x0b.Statistics\"\x00\x12(\n\nGetHistory\x12\x0e.HistoryLength\x1a\x08.History\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0broute.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x18\n\x06Length\x12\x0e\n\x06Length\x18\x01 \x01(\x05\"(\n\nTimeSeries\x12\x0b\n\x03Key\x18\x01 \x01(\t\x12\r\n\x05Value\x18\x02 \x03(\x02\"\"\n\x07History\x12\x17\n\x02TS\x18\x01 \x03(\x0b\x32\x0b.TimeSeries\"\x12\n\x03Tmp\x12\x0b\n\x03tmp\x18\x01 \x01(\x05\"j\n\tSelection\x12\r\n\x05\x41sset\x18\x01 \x01(\t\x12\x10\n\x08Strategy\x18\x02 \x01(\t\x12+\n\nParameters\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07\x43\x61pital\x18\x04 \x01(\x05\"\xed\x01\n\nStatistics\x12\t\n\x01v\x18\x01 \x01(\x02\x12\t\n\x01t\x18\x02 \x01(\x02\x12\t\n\x01o\x18\x03 \x01(\x02\x12\t\n\x01h\x18\x04 \x01(\x02\x12\t\n\x01l\x18\x05 \x01(\x02\x12\t\n\x01\x63\x18\x06 \x01(\x02\x12\x0e\n\x06\x61\x63tion\x18\x07 \x01(\x02\x12\x16\n\x0e\x62\x61lance_change\x18\x08 \x01(\x02\x12\r\n\x05stock\x18\t \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\n \x01(\x02\x12\x0e\n\x06return\x18\x0b \x01(\x02\x12\r\n\x05\x61lpha\x18\x0c \x01(\x02\x12\x0e\n\x06sharpe\x18\r \x01(\x02\x12\x15\n\rannual_sharpe\x18\x0e \x01(\x02\x12\x0f\n\x07sortino\x18\x0f \x01(\x02\x32\xcd\x01\n\x05Route\x12\x30\n\x13InitialiseAlgorithm\x12\n.Selection\x1a\x0b.Statistics\"\x00\x12$\n\rGetStatistics\x12\x04.Tmp\x1a\x0b.Statistics\"\x00\x12\x1e\n\x07GetData\x12\x07.Length\x1a\x08.History\"\x00\x12$\n\rGetIndicators\x12\x07.Length\x1a\x08.History\"\x00\x12&\n\x0fGetPerformances\x12\x07.Length\x1a\x08.History\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
 
-_HISTORYLENGTH = _descriptor.Descriptor(
-  name='HistoryLength',
-  full_name='HistoryLength',
+_LENGTH = _descriptor.Descriptor(
+  name='Length',
+  full_name='Length',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Length', full_name='HistoryLength.Length', index=0,
+      name='Length', full_name='Length.Length', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -53,7 +53,7 @@ _HISTORYLENGTH = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=45,
-  serialized_end=76,
+  serialized_end=69,
 )
 
 
@@ -65,8 +65,15 @@ _TIMESERIES = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Value', full_name='TimeSeries.Value', index=0,
-      number=1, type=2, cpp_type=6, label=3,
+      name='Key', full_name='TimeSeries.Key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Value', full_name='TimeSeries.Value', index=1,
+      number=2, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -83,8 +90,8 @@ _TIMESERIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=78,
-  serialized_end=105,
+  serialized_start=71,
+  serialized_end=111,
 )
 
 
@@ -114,8 +121,8 @@ _HISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=107,
-  serialized_end=141,
+  serialized_start=113,
+  serialized_end=147,
 )
 
 
@@ -145,8 +152,8 @@ _TMP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=161,
+  serialized_start=149,
+  serialized_end=167,
 )
 
 
@@ -197,8 +204,8 @@ _SELECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=163,
-  serialized_end=269,
+  serialized_start=169,
+  serialized_end=275,
 )
 
 
@@ -326,13 +333,13 @@ _STATISTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=272,
-  serialized_end=509,
+  serialized_start=278,
+  serialized_end=515,
 )
 
 _HISTORY.fields_by_name['TS'].message_type = _TIMESERIES
 _SELECTION.fields_by_name['Parameters'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-DESCRIPTOR.message_types_by_name['HistoryLength'] = _HISTORYLENGTH
+DESCRIPTOR.message_types_by_name['Length'] = _LENGTH
 DESCRIPTOR.message_types_by_name['TimeSeries'] = _TIMESERIES
 DESCRIPTOR.message_types_by_name['History'] = _HISTORY
 DESCRIPTOR.message_types_by_name['Tmp'] = _TMP
@@ -340,12 +347,12 @@ DESCRIPTOR.message_types_by_name['Selection'] = _SELECTION
 DESCRIPTOR.message_types_by_name['Statistics'] = _STATISTICS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-HistoryLength = _reflection.GeneratedProtocolMessageType('HistoryLength', (_message.Message,), {
-  'DESCRIPTOR' : _HISTORYLENGTH,
+Length = _reflection.GeneratedProtocolMessageType('Length', (_message.Message,), {
+  'DESCRIPTOR' : _LENGTH,
   '__module__' : 'route_pb2'
-  # @@protoc_insertion_point(class_scope:HistoryLength)
+  # @@protoc_insertion_point(class_scope:Length)
   })
-_sym_db.RegisterMessage(HistoryLength)
+_sym_db.RegisterMessage(Length)
 
 TimeSeries = _reflection.GeneratedProtocolMessageType('TimeSeries', (_message.Message,), {
   'DESCRIPTOR' : _TIMESERIES,
@@ -390,8 +397,8 @@ _ROUTE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=512,
-  serialized_end=649,
+  serialized_start=518,
+  serialized_end=723,
   methods=[
   _descriptor.MethodDescriptor(
     name='InitialiseAlgorithm',
@@ -412,11 +419,29 @@ _ROUTE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='GetHistory',
-    full_name='Route.GetHistory',
+    name='GetData',
+    full_name='Route.GetData',
     index=2,
     containing_service=None,
-    input_type=_HISTORYLENGTH,
+    input_type=_LENGTH,
+    output_type=_HISTORY,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetIndicators',
+    full_name='Route.GetIndicators',
+    index=3,
+    containing_service=None,
+    input_type=_LENGTH,
+    output_type=_HISTORY,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetPerformances',
+    full_name='Route.GetPerformances',
+    index=4,
+    containing_service=None,
+    input_type=_LENGTH,
     output_type=_HISTORY,
     serialized_options=None,
   ),

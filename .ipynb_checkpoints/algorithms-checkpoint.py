@@ -8,6 +8,16 @@ class Algorithm:
         self.indicator = indicator  # e.g. pd.DataFrame, AUD-USD
         self.strategy = strategy  # e.g. Strategy, MACDStrategy
         self.capital = capital  # e.g. 1000
+        self.data_col = ['v', 't', 'o', 'l', 'c']
+        self.performance_col = ['action',
+                                'balance',
+                                'balance_change',
+                                'stock',
+                                'return',
+                                'alpha',
+                                'sharpe',
+                                'annual_sharpe',
+                                'sortino']
         
     def accept(self, observation):
         # Integrate incoming new data
@@ -36,21 +46,8 @@ class Algorithm:
         self.performance()
         
     def statistics(self, k=100):
-        return self.indicator[['v',
-                               't',
-                               'o',
-                               'l',
-                               'c',
-                               'action',
-                               'balance_change',
-                               'stock',
-                               'balance',
-                               'return',
-                               'alpha',
-                               'sharpe',
-                               'annual_sharpe',
-                               'sortino'
-                              ]].iloc[-1].to_dict()
+        return self.indicator[self.data_col + \
+                              self.performance_col].iloc[-1].to_dict()
     
     def plot_indicators(self, k=100):
         self.strategy.plot(self.indicator, k=k)
@@ -72,6 +69,9 @@ from ta.trend import MACD
 class MACDStrategy:
     def __init__(self, parameters):
         self.parameters = parameters  # e.g. Dictionary, {'ema26':26, 'ema12':12, 'ema9':9}
+        self.indicator_col = ['trend_macd',
+                              'trend_macd_signal',
+                              'trend_macd_diff']
         
     def action(self, indicator):
         # Derive the action based on past data
@@ -101,6 +101,7 @@ from ta.volume import MFIIndicator
 class MFIStrategy:
     def __init__(self, parameters):
         self.parameters = parameters  # e.g. Dictionary, {'mfi80':80, 'mfi20':20}
+        self.indicator_col = ['volume_mfi']
         
     def action(self, indicator):
         # Derive the action based on past data
@@ -127,6 +128,7 @@ from ta.momentum import RSIIndicator
 class RSIStrategy:
     def __init__(self, parameters):
         self.parameters = parameters  # e.g. Dictionary, {'rsi70': 70, 'rsi30': 30}
+        self.indicator_col = ['momentum_rsi']
         
     def action(self, indicator):
         # Derive the action based on past data

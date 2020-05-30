@@ -25,9 +25,19 @@ class RouteStub(object):
                 request_serializer=route__pb2.Tmp.SerializeToString,
                 response_deserializer=route__pb2.Statistics.FromString,
                 )
-        self.GetHistory = channel.unary_unary(
-                '/Route/GetHistory',
-                request_serializer=route__pb2.HistoryLength.SerializeToString,
+        self.GetData = channel.unary_unary(
+                '/Route/GetData',
+                request_serializer=route__pb2.Length.SerializeToString,
+                response_deserializer=route__pb2.History.FromString,
+                )
+        self.GetIndicators = channel.unary_unary(
+                '/Route/GetIndicators',
+                request_serializer=route__pb2.Length.SerializeToString,
+                response_deserializer=route__pb2.History.FromString,
+                )
+        self.GetPerformances = channel.unary_unary(
+                '/Route/GetPerformances',
+                request_serializer=route__pb2.Length.SerializeToString,
                 response_deserializer=route__pb2.History.FromString,
                 )
 
@@ -51,8 +61,22 @@ class RouteServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetHistory(self, request, context):
-        """Get timeseries
+    def GetData(self, request, context):
+        """Get past data
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetIndicators(self, request, context):
+        """Get past indicators
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetPerformances(self, request, context):
+        """Get past performances
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -71,9 +95,19 @@ def add_RouteServicer_to_server(servicer, server):
                     request_deserializer=route__pb2.Tmp.FromString,
                     response_serializer=route__pb2.Statistics.SerializeToString,
             ),
-            'GetHistory': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetHistory,
-                    request_deserializer=route__pb2.HistoryLength.FromString,
+            'GetData': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetData,
+                    request_deserializer=route__pb2.Length.FromString,
+                    response_serializer=route__pb2.History.SerializeToString,
+            ),
+            'GetIndicators': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetIndicators,
+                    request_deserializer=route__pb2.Length.FromString,
+                    response_serializer=route__pb2.History.SerializeToString,
+            ),
+            'GetPerformances': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPerformances,
+                    request_deserializer=route__pb2.Length.FromString,
                     response_serializer=route__pb2.History.SerializeToString,
             ),
     }
@@ -121,7 +155,7 @@ class Route(object):
             call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetHistory(request,
+    def GetData(request,
             target,
             options=(),
             channel_credentials=None,
@@ -130,8 +164,40 @@ class Route(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Route/GetHistory',
-            route__pb2.HistoryLength.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/Route/GetData',
+            route__pb2.Length.SerializeToString,
+            route__pb2.History.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetIndicators(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Route/GetIndicators',
+            route__pb2.Length.SerializeToString,
+            route__pb2.History.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPerformances(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Route/GetPerformances',
+            route__pb2.Length.SerializeToString,
             route__pb2.History.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

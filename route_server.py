@@ -48,12 +48,32 @@ class RouteServicer(route_pb2_grpc.RouteServicer):
     def GetStatistics(self, request, context):
         return route_pb2.Statistics(**self.algorithm.statistics())
     
-    def GetHistory(self, request, context):
+    def GetData(self, request, context):
         k = request.Length
-        matrix = self.algorithm.indicator.values[:k,:].T.tolist()
-        TS = [route_pb2.TimeSeries(Value=matrix[i])
-              for i in range(len(matrix))]
+        columns = self.algorithm.data_col
+        matrix = self.algorithm.indicator[columns].values[-k:,:].T.tolist()
+        TS = [route_pb2.TimeSeries(Key=columns[i],
+                                   Value=matrix[i])
+              for i in range(len(columns))]
         return route_pb2.History(TS=TS) 
+    
+    def GetIndicators(self, request, context):
+        k = request.Length
+        columns = self.algorithm.strategy.indicator_col
+        matrix = self.algorithm.indicator[columns].values[-k:,:].T.tolist()
+        TS = [route_pb2.TimeSeries(Key=columns[i],
+                                   Value=matrix[i])
+              for i in range(len(columns))]
+        return route_pb2.History(TS=TS)
+    
+    def GetPerformances(self, request, context):
+        k = request.Length
+        columns = self.algorithm.performance_col
+        matrix = self.algorithm.indicator[columns].values[-k:,:].T.tolist()
+        TS = [route_pb2.TimeSeries(Key=columns[i],
+                                   Value=matrix[i])
+              for i in range(len(columns))]
+        return route_pb2.History(TS=TS)
         
     
 def serve():
