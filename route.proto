@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+service Route {
+    // Template
+    // rpc Function(Request) returns (Message) {}
+    
+    // Initialise indicator, strategy, parameters
+    rpc InitialiseAlgorithm(Selection) returns (Statistics) {}
+    
+    // Get statistics
+    rpc GetStatistics(Tmp) returns (Statistics) {}
+}
+ 
+message Tmp {
+    int32 tmp = 1;
+}
+ 
+message Selection {
+    string Strategy = 1;
+    google.protobuf.Struct Parameters = 2;
+    int32 Capital = 3;
+}
+
+message Statistics {
+    float Volume = 1; 
+    float Time = 2;
+    float O = 3;
+    float H = 4;
+    float L = 5;
+    float C = 6;
+    float action = 7;
+    float balance_change = 8;
+    float stock = 9;
+    float balance = 10;
+    float return = 11;
+    float alpha = 12;
+    float sharpe = 13;
+    float annual_sharpe = 14;
+    float sortino = 15;
+}

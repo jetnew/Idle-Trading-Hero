@@ -36,7 +36,22 @@ class Algorithm:
         self.performance()
         
     def statistics(self, k=100):
-        return self.indicator.iloc[-1]
+        return self.indicator[['Volume',
+                               'Time',
+                               'O',
+                               'H',
+                               'L',
+                               'C',
+                               'action',
+                               'balance_change',
+                               'stock',
+                               'balance',
+                               'return',
+                               'alpha',
+                               'sharpe',
+                               'annual_sharpe',
+                               'sortino'
+                              ]].iloc[-1].to_dict()
     
     def plot_indicators(self, k=100):
         self.strategy.plot(self.indicator, k=k)
