@@ -97,16 +97,16 @@ The market data supplier serves to supply market data from the data source, such
 | 3. What is the benefit?                        | The supplier distributes the computational load evenly between the services in the architecture.                   |
 | 4. What is the feature specifications?         | The supplier calls the data source API periodically / listen on a stream and sends data to the message queue.      |
 
-## 3. Strategy Microservice
+## 3. Strategy Service
 
-The strategy microservice aims to compartmentalise the computation of strategies to a separate server. The microservice uses a protocol to receive and supply relevant strategy data.
+The strategy service aims to compartmentalise the computation of strategies to a separate server. The service uses a protocol to receive and supply relevant strategy data.
 
 | Questions                                      | Answers                                                                                                                                                                                                                     |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the user role (public/member/admin)? | The microservice is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
-| 2. What is the desired outcome (user goal)?    | The microservice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
-| 3. What is the benefit?                        | The microservice distributes the computational load evenly between the services in the architecture.                                                                                                                        |
-| 4. What is the feature specifications?         | The microservice is called whenever messages from the market data supplier message queue is passed. The microservice performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+| 1. Who is the user role (public/member/admin)? | The service is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
+| 2. What is the desired outcome (user goal)?    | The ervice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
+| 3. What is the benefit?                        | The service distributes the computational load evenly between the services in the architecture.                                                                                                                        |
+| 4. What is the feature specifications?         | The service is called whenever messages from the market data supplier message queue is passed. The service performs required strategy computations, then returns the buy/sell action to the relevant destination. |
 
 # Project Log
 
