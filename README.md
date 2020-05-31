@@ -1,4 +1,4 @@
-# Idle Trading Hero - Milestone 1
+# Idle Trading Hero
 
 ![poster](https://user-images.githubusercontent.com/27071473/83352987-039e3f80-a382-11ea-9d70-eb8649611e26.jpg)
 
@@ -12,7 +12,7 @@ Idle Trading Hero is a trading platform to jumpstart [automated trading](https:/
 
 Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter. 
 
-# Feature Deliverables for Milestone 1
+# Feature Deliverables for Milestone 1 (1 June 2020)
 
 ## 1. Login-Registration System
 
