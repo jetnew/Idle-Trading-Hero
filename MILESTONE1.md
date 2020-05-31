@@ -42,6 +42,13 @@ Technical analysis indicators refer to the implementation of basic trading indic
 
 The algorithm selection panel refers to the hosted web page that allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, along with backtesting performance for traders to deploy the optimal trading algorithm. The web backend is implemented in Golang and developed using [Docker](https://www.docker.com/), and uses [gRPC](https://grpc.io/) to request data from the indicator server.
 
+| Available Assets                         | Available Strategies                        | Available Parameters |
+|------------------------------------------|---------------------------------------------|----------------------|
+| AAPL: Apple Inc.                         | MACD: Moving Average Convergence/Divergence | Duration             |
+| GOOGL: Alphabet Inc Class A              | MFI: Money Flow Index                       | Exit Condition       |
+| SPY: SPDR S&P 500 ETF Trust              | RSI: Relative Strength Index                | Capital              |
+| VOO: VANGUARD IX FUN/S&P 500 ETF SHS NEW |                                             | Algorithm Parameters |
+
 | Questions                                      | Answers                                                                                                                                                                                                                                                              |
 |------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1. Who is the user role (public/member/admin)? | The algorithm selection panel is accessible to the public upon creation of an account on the Idle Trading Hero platform, to be used during algorithm creation pre-deployment.                                                                                        |
