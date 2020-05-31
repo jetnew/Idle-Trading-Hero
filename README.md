@@ -1,8 +1,4 @@
-# Idle Trading Hero
-
-![poster](https://user-images.githubusercontent.com/27071473/83352987-039e3f80-a382-11ea-9d70-eb8649611e26.jpg)
-
-An Artemis-level project for Orbital, CP2106: Independent Software Development Project at NUS School of Computing.
+![banner](https://user-images.githubusercontent.com/27071473/83358729-175c9c80-a3a8-11ea-970b-bfd3af83c877.png)
 
 # Project Description
 
@@ -11,6 +7,12 @@ Idle Trading Hero is a trading platform to jumpstart [automated trading](https:/
 # Project Motivation
 
 Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter.
+
+# Project Poster
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/27071473/83358679-b8972300-a3a7-11ea-8029-ade132871dc0.png" alt="drawing" width="50%"/>
+</p>
 
 # Project Ideation
 
