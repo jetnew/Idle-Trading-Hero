@@ -1,6 +1,6 @@
 # Idle Trading Hero
 
-![poster](assets/poster.jpg)
+![poster](https://user-images.githubusercontent.com/27071473/83352987-039e3f80-a382-11ea-9d70-eb8649611e26.jpg)
 
 An Artemis-level project for Orbital, CP2106: Independent Software Development Project at NUS School of Computing.
 
@@ -14,13 +14,13 @@ Algorithmic trading (or automated trading) uses trading algorithms to place trad
 
 Traders can register and login to manage personal accounts and trading strategies.
 
-![login](assets/login_register.PNG)
+![login_register](https://user-images.githubusercontent.com/27071473/83352989-06993000-a382-11ea-9e1a-178013ee8721.PNG)
 
 ## 2. Algorithm Selection Panel
 
 The panel allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, along with backtesting performance indications so that traders can make the optimal automated trading decisions.
 
-![panel](assets/algo_selection_panel.PNG)
+![algo_selection_panel](https://user-images.githubusercontent.com/27071473/83352990-0862f380-a382-11ea-98bd-9063326ed919.PNG)
 
 | Available Assets                         | Available Strategies                        | Available Parameters |
 |------------------------------------------|---------------------------------------------|----------------------|
@@ -32,7 +32,7 @@ The panel allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, alo
 
 ## 3. Analytics Visualisation Dashboard
 
-The dashboard allows traders to visualise real-time performance analytics, ranging from total returns to Sharpe and Sortino ratios to gain insights about the automated trading algorithm.
+The dashboard allows traders to visualise real-time performance analytics, ranging from total returns to Sharpe and Sortino ratios to gain insights about their portfolio earnings.
 
 ## 4. Live Deployment
 
