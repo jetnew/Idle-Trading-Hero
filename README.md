@@ -10,7 +10,15 @@ Idle Trading Hero is a trading platform to jumpstart [automated trading](https:/
 
 # Project Motivation
 
-Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter. 
+Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter.
+
+# Project Ideation
+
+| Questions                                   | Answers                                                                                                                                                                                                                                  |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Who is the target audience?              | Idle Trading Hero aims to target the market of potential algorithmic traders gate-kept by existing inaccessible trading platforms. The platform allows a whole youth-heavy generation of potential traders to begin algorithmic trading. |
+| 2. What is the problem statement?           | Idle Trading Hero therefore tackles the problem statement: How can potential algorithmic traders gate-kept by existing inaccessible trading platforms begin their journey in algorithmic trading?                                        |
+| 3. How does the solution solve the problem? | Idle Trading Hero resolves the 3-way dilemma among 1. Profitability, 2. Accessibility and 3. Control. With the Idle Trading Hero platform, traders can jumpstart automated trading strategies easily.                                    |
 
 # Feature Deliverables for Milestone 1 (1 June 2020)
 
@@ -64,14 +72,6 @@ The algorithm backtesting engine refers to the implementation of an engine to si
 | 1. Who is the user role (public/member/admin)? | The algorithm backtesting engine is accessible to the public through the algorithm selection panel, while the API endpoint is accessible to the admin for maintenance.                                                                    |
 | 2. What is the desired outcome (user goal)?    | The engine facilitates the visualisation of expected performance given a particular combination of asset-algorithm-parameters.                                                                                                            |
 | 3. What is the benefit?                        | The engine serves the project's core needs by providing an expected performance on historical data (profitability), visualisation of performance (accessibility) and an indicator for the result of algorithm parameter-tuning (control). |
-
-# Project Ideation
-
-| Questions                                   | Answers                                                                                                                                                                                                                                  |
-|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the target audience?              | Idle Trading Hero aims to target the market of potential algorithmic traders gate-kept by existing inaccessible trading platforms. The platform allows a whole youth-heavy generation of potential traders to begin algorithmic trading. |
-| 2. What is the problem statement?           | Idle Trading Hero therefore tackles the problem statement: How can potential algorithmic traders gate-kept by existing inaccessible trading platforms begin their journey in algorithmic trading?                                        |
-| 3. How does the solution solve the problem? | Idle Trading Hero resolves the 3-way dilemma among 1. Profitability, 2. Accessibility and 3. Control. With the Idle Trading Hero platform, traders can jumpstart automated trading strategies easily.                                    |
 
 # Feature Deliverables for Milestone 2
 
