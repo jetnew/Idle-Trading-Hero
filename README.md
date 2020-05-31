@@ -1,4 +1,4 @@
-![banner](https://user-images.githubusercontent.com/27071473/83358729-175c9c80-a3a8-11ea-970b-bfd3af83c877.png)
+![banner](https://user-images.githubusercontent.com/27071473/83358983-bc2ba980-a3a9-11ea-80eb-f4467c001de6.png)
 
 # Project Description
 
@@ -11,7 +11,7 @@ Many potential traders seek profitable passive trading, using easily understanda
 # Project Poster
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/27071473/83358679-b8972300-a3a7-11ea-8029-ade132871dc0.png" alt="drawing" width="50%"/>
+    <img src="https://user-images.githubusercontent.com/27071473/83358984-bdf56d00-a3a9-11ea-8ab4-dce259601584.png" alt="drawing" width="50%"/>
 </p>
 
 # Project Ideation
@@ -131,5 +131,5 @@ The strategy service aims to compartmentalise the computation of strategies to a
 | 15  | 30/5/2020 | 4     | Implementation: Strategy Server                                                | Implemented gRPC Python server for algorithms and strategies and sample client for testing.                           | Jet New      |
 | 16  | 30/5/2020 | 2     | Implementation: Indicator, Strategy and Parameter Selection on Strategy Server | Implemented functionality to customise indicator, strategy and parameters for all algorithms on the gRPC server.      | Jet New      |
 | 17  | 31/5/2020 | 4     | Installation: Web Backend Server, Docker, Postman                              | Set up Go backend server, requiring setting up of Docker and Postman, and tested functionality of backend server      | Jet New      |
-| 18  | 31/5/2020 | 5     | Documentation: Milestone 1                                                     | Write up Milestone README                                                                                             | Jet New      |
-|     | 22 Days   | 82    |                                                                                |                                                                                                                       |              |
+| 18  | 31/5/2020 | 8     | Documentation: Milestone 1                                                     | Write up Milestone README                                                                                             | Jet New      |
+|     | 22 Days   | 85    |                                                                                |                                                                                                                       |              |
