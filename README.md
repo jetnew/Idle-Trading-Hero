@@ -14,13 +14,13 @@ Algorithmic trading (or automated trading) uses trading algorithms to place trad
 
 Traders can register and login to manage personal accounts and trading strategies.
 
-![login](assets/login_register.png)
+![login](assets/login_register.PNG)
 
 ## 2. Algorithm Selection Panel
 
 The panel allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, along with backtesting performance indications so that traders can make the optimal automated trading decisions.
 
-![panel](assets/algo_selection_panel.png)
+![panel](assets/algo_selection_panel.PNG)
 
 * Available Assets
 
