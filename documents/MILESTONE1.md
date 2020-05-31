@@ -1,4 +1,4 @@
-![banner](https://user-images.githubusercontent.com/27071473/83358729-175c9c80-a3a8-11ea-970b-bfd3af83c877.png)
+![banner](https://user-images.githubusercontent.com/27071473/83358983-bc2ba980-a3a9-11ea-80eb-f4467c001de6.png)
 
 # Project Description
 
@@ -11,7 +11,7 @@ Many potential traders seek profitable passive trading, using easily understanda
 # Project Poster
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/27071473/83358679-b8972300-a3a7-11ea-8029-ade132871dc0.png" alt="drawing" width="50%"/>
+    <img src="https://user-images.githubusercontent.com/27071473/83358984-bdf56d00-a3a9-11ea-8ab4-dce259601584.png" alt="drawing" width="50%"/>
 </p>
 
 # Project Ideation
