@@ -28,7 +28,6 @@ The panel allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, alo
 | GOOGL: Alphabet Inc Class A              | MFI: Money Flow Index                       | Exit Condition       |
 | SPY: SPDR S&P 500 ETF Trust              | RSI: Relative Strength Index                | Capital              |
 | VOO: VANGUARD IX FUN/S&P 500 ETF SHS NEW |                                             | Algorithm Parameters |
-| To be added                              | To be added                                 | To be added          |
 
 ## 3. Analytics Visualisation Dashboard
 
