@@ -1,4 +1,4 @@
-# Idle Trading Hero - Milestone 1
+# Idle Trading Hero
 
 ![poster](https://user-images.githubusercontent.com/27071473/83352987-039e3f80-a382-11ea-9d70-eb8649611e26.jpg)
 
@@ -10,7 +10,15 @@ Idle Trading Hero is a trading platform to jumpstart [automated trading](https:/
 
 # Project Motivation
 
-Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter. 
+Many potential traders seek profitable passive trading, using easily understandable trading algorithms, yet with control over how the algorithms make use of the trader's capital. Idle Trading Hero stems from 3 core needs: Profitability, Accessibility and Control.  Idle Trading Hero therefore aims to resolve this 3-way dilemma that many existing platforms do not offer. Many are interested in exploring [passive income](https://en.wikipedia.org/wiki/Passive_income) options or [investment](https://en.wikipedia.org/wiki/Investment) options, and some are interested in exploring the field of [quantitative finance](https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)). Jet is of the former and Ian is of the latter.
+
+# Project Ideation
+
+| Questions                                   | Answers                                                                                                                                                                                                                                  |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Who is the target audience?              | Idle Trading Hero aims to target the market of potential algorithmic traders gate-kept by existing inaccessible trading platforms. The platform allows a whole youth-heavy generation of potential traders to begin algorithmic trading. |
+| 2. What is the problem statement?           | Idle Trading Hero therefore tackles the problem statement: How can potential algorithmic traders gate-kept by existing inaccessible trading platforms begin their journey in algorithmic trading?                                        |
+| 3. How does the solution solve the problem? | Idle Trading Hero resolves the 3-way dilemma among 1. Profitability, 2. Accessibility and 3. Control. With the Idle Trading Hero platform, traders can jumpstart automated trading strategies easily.                                    |
 
 # Feature Deliverables for Milestone 1 (1 June 2020)
 
@@ -28,7 +36,7 @@ The login-registration system refers to the authentication system for individual
 
 ## 2. Technical Analysis (TA) Indicators
    
-Technical analysis indicators refer to the implementation of basic trading indicators for technical analysis, including the MACD (Moving Average Convergence Divergence), MFI (Money Flow Index) and RSI (Relative Strength Index). The TA indicators are implemented with  object-oriented (OO) interface in Python, using [Pandas](https://pandas.pydata.org/) and [TA](https://github.com/bukosabino/ta), indicator data visualisations plotted using [Matplotlib](https://matplotlib.org/), and interface endpoint exposed using [gRPC](https://grpc.io/). A tutorial is included for the usage of the baseline models in /examples.
+Technical analysis indicators refer to the implementation of basic trading indicators for technical analysis, including the MACD (Moving Average Convergence Divergence), MFI (Money Flow Index) and RSI (Relative Strength Index). The TA indicators are implemented with  object-oriented (OO) interface in Python, using [Pandas](https://pandas.pydata.org/) and [TA](https://github.com/bukosabino/ta), indicator data visualisations plotted using [Matplotlib](https://matplotlib.org/), and interface endpoint exposed using [gRPC](https://grpc.io/). A tutorial is included for the usage of the TA indicators.
    
 | Questions                                      | Answers                                                                                                                                                                                                                                                     |
 |------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,14 +73,6 @@ The algorithm backtesting engine refers to the implementation of an engine to si
 | 2. What is the desired outcome (user goal)?    | The engine facilitates the visualisation of expected performance given a particular combination of asset-algorithm-parameters.                                                                                                            |
 | 3. What is the benefit?                        | The engine serves the project's core needs by providing an expected performance on historical data (profitability), visualisation of performance (accessibility) and an indicator for the result of algorithm parameter-tuning (control). |
 
-# Project Ideation
-
-| Questions                                   | Answers                                                                                                                                                                                                                                  |
-|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the target audience?              | Idle Trading Hero aims to target the market of potential algorithmic traders gate-kept by existing inaccessible trading platforms. The platform allows a whole youth-heavy generation of potential traders to begin algorithmic trading. |
-| 2. What is the problem statement?           | Idle Trading Hero therefore tackles the problem statement: How can potential algorithmic traders gate-kept by existing inaccessible trading platforms begin their journey in algorithmic trading?                                        |
-| 3. How does the solution solve the problem? | Idle Trading Hero resolves the 3-way dilemma among 1. Profitability, 2. Accessibility and 3. Control. With the Idle Trading Hero platform, traders can jumpstart automated trading strategies easily.                                    |
-
 # Feature Deliverables for Milestone 2
 
 ## 1. Fundamental Analysis (FA) Indicators
@@ -97,13 +97,37 @@ The market data supplier serves to supply market data from the data source, such
 | 3. What is the benefit?                        | The supplier distributes the computational load evenly between the services in the architecture.                   |
 | 4. What is the feature specifications?         | The supplier calls the data source API periodically / listen on a stream and sends data to the message queue.      |
 
-## 3. Strategy Microservice
+## 3. Strategy Service
 
-The strategy microservice aims to compartmentalise the computation of strategies to a separate server. The microservice uses a protocol to receive and supply relevant strategy data.
+The strategy service aims to compartmentalise the computation of strategies to a separate server. The service uses a protocol to receive and supply relevant strategy data.
 
 | Questions                                      | Answers                                                                                                                                                                                                                     |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the user role (public/member/admin)? | The microservice is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
-| 2. What is the desired outcome (user goal)?    | The microservice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
-| 3. What is the benefit?                        | The microservice distributes the computational load evenly between the services in the architecture.                                                                                                                        |
-| 4. What is the feature specifications?         | The microservice is called whenever messages from the market data supplier message queue is passed. The microservice performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+| 1. Who is the user role (public/member/admin)? | The service is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
+| 2. What is the desired outcome (user goal)?    | The ervice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
+| 3. What is the benefit?                        | The service distributes the computational load evenly between the services in the architecture.                                                                                                                        |
+| 4. What is the feature specifications?         | The service is called whenever messages from the market data supplier message queue is passed. The service performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+
+# Project Log
+
+| S/N | Date      | Hours | Task                                                                           | Remarks                                                                                                               | Completed by |
+|-----|-----------|-------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------|
+| 1   | 9/5/2020  | 3     | Literature Review: Finance                                                     | Read up finance concepts.                                                                                             | Jet New      |
+| 2   | 9/5/2020  | 8     | Literature Review: Technical Analysis                                          | Read up on technical analysis concepts.                                                                               | Jet New      |
+| 3   | 10/5/2020 | 5     | Literature Review: Trading Service Platforms (Oanda, Quantopian)               | Read up on Oanda and Quantopian, sign up and used APIs to obtain historical data.                                     | Jet New      |
+| 4   | 10/5/2020 | 6     | Experimental Analysis: LSTM Forecasting on AUD_USD                             | Experiment on machine learning using Long Short-Term Memory networks for forecasting AUD_USD data for 10K timestamps. | Jet New      |
+| 5   | 16/5/2020 | 6     | Literature Review: Trading Algorithms                                          | Read up on trading algorithms in general.                                                                             | Jet New      |
+| 6   | 16/5/2020 | 4     | Implementation: MACD Indicator                                                 | Implemented MACD indicator in Python and exponential moving average with window size of 26, 12 and 9.                 | Jet New      |
+| 7   | 16/5/2020 | 4     | Implementation: MACD Strategy                                                  | Implemented MACD strategy using Pandas DataFrames column operations, and mapping of indicator to buy/sell action.     | Jet New      |
+| 8   | 16/5/2020 | 3     | Implementation: MACD Visualisation                                             | Implemented MACD visualisation of indicators using Matplotlib.                                                        | Jet New      |
+| 9   | 17/5/2020 | 8     | Literature Review: Technical Analysis                                          | Read up further on technical analysis and compile list of trading algorithms for potential implementation.            | Jet New      |
+| 10  | 23/5/2020 | 6     | Implementation: Algorithm and Strategy Interface                               | Design Object-Oriented interface of algorithms and each strategy for standardised usage.                              | Jet New      |
+| 11  | 23/5/2020 | 5     | Implementation: MACD, MFI, RSI Indicators, Strategies and Visualisation        | Implemented MACD, MFI, RSI strategies using TA library and OO interface.                                              | Jet New      |
+| 12  | 23/5/2020 | 3     | Implementation: Performance Metrics                                            | Implemented returns, alpha, beta, sharpe ratio and sortino ratio.                                                     | Jet New      |
+| 13  | 24/5/2020 | 2     | Documentation: Algorithm and Strategy Interface                                | Documented the OO interface for algorithms and strategies.                                                            | Jet New      |
+| 14  | 30/5/2020 | 4     | Literature Review: Protocol Buffer                                             | Read up documentation on gRPC for Protocol Buffer and server-client communication.                                    | Jet New      |
+| 15  | 30/5/2020 | 4     | Implementation: Strategy Server                                                | Implemented gRPC Python server for algorithms and strategies and sample client for testing.                           | Jet New      |
+| 16  | 30/5/2020 | 2     | Implementation: Indicator, Strategy and Parameter Selection on Strategy Server | Implemented functionality to customise indicator, strategy and parameters for all algorithms on the gRPC server.      | Jet New      |
+| 17  | 31/5/2020 | 4     | Installation: Web Backend Server, Docker, Postman                              | Set up Go backend server, requiring setting up of Docker and Postman, and tested functionality of backend server      | Jet New      |
+| 18  | 31/5/2020 | 5     | Documentation: Milestone 1                                                     | Write up Milestone README                                                                                             | Jet New      |
+|     | 22 Days   | 82    |                                                                                |                                                                                                                       |              |
