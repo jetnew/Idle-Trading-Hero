@@ -1,8 +1,8 @@
 # Idle Trading Hero
 
-An Artemis-level project for Orbital, CP2106: Independent Software Development Project at NUS School of Computing.
-
 ![poster](assets/poster.jpg)
+
+An Artemis-level project for Orbital, CP2106: Independent Software Development Project at NUS School of Computing.
 
 # Project Motivation
 
@@ -22,27 +22,13 @@ The panel allows traders to select: 1. Assets, 2. Strategies, 3. Parameters, alo
 
 ![panel](assets/algo_selection_panel.PNG)
 
-* Available Assets
-
-  * AAPL: Apple Inc.
-  * GOOGL: Alphabet Inc Class A
-  * SPY: SPDR S&P 500 ETF Trust
-  * VOO: VANGUARD IX FUN/S&P 500 ETF SHS NEW
-  * To be added
-
-* Available Strategies
-
-  * MACD: Moving Average Convergence/Divergence
-  * MFI: Money Flow Index
-  * RSI: Relative Strength Index
-  * To be added
-
-* Available Parameters
-
-  * Duration
-  * Exit Condition
-  * Capital
-  * Algorithm-Specific Parameters
+| Available Assets                         | Available Strategies                        | Available Parameters |
+|------------------------------------------|---------------------------------------------|----------------------|
+| AAPL: Apple Inc.                         | MACD: Moving Average Convergence/Divergence | Duration             |
+| GOOGL: Alphabet Inc Class A              | MFI: Money Flow Index                       | Exit Condition       |
+| SPY: SPDR S&P 500 ETF Trust              | RSI: Relative Strength Index                | Capital              |
+| VOO: VANGUARD IX FUN/S&P 500 ETF SHS NEW |                                             | Algorithm Parameters |
+| To be added                              | To be added                                 | To be added          |
 
 ## 3. Analytics Visualisation Dashboard
 
