@@ -1,3 +1,5 @@
+# Idle Trading Hero - Milestone 1
+
 ![banner](https://user-images.githubusercontent.com/27071473/83358983-bc2ba980-a3a9-11ea-80eb-f4467c001de6.png)
 
 # Project Description
@@ -11,7 +13,7 @@ Many potential traders seek profitable passive trading, using easily understanda
 # Project Poster
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/27071473/83358984-bdf56d00-a3a9-11ea-8ab4-dce259601584.png" alt="drawing" width="50%"/>
+    <img src="https://user-images.githubusercontent.com/27071473/83369156-f3bc4500-a3ed-11ea-9a52-14aac952e08a.png" alt="drawing" width="50%"/>
 </p>
 
 # Project Ideation
@@ -109,27 +111,3 @@ The strategy service aims to compartmentalise the computation of strategies to a
 | 2. What is the desired outcome (user goal)?    | The ervice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
 | 3. What is the benefit?                        | The service distributes the computational load evenly between the services in the architecture.                                                                                                                        |
 | 4. What is the feature specifications?         | The service is called whenever messages from the market data supplier message queue is passed. The service performs required strategy computations, then returns the buy/sell action to the relevant destination. |
-
-# Project Log
-
-| S/N | Date      | Hours | Task                                                                           | Remarks                                                                                                               | Completed by |
-|-----|-----------|-------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------|
-| 1   | 9/5/2020  | 3     | Literature Review: Finance                                                     | Read up finance concepts.                                                                                             | Jet New      |
-| 2   | 9/5/2020  | 8     | Literature Review: Technical Analysis                                          | Read up on technical analysis concepts.                                                                               | Jet New      |
-| 3   | 10/5/2020 | 5     | Literature Review: Trading Service Platforms (Oanda, Quantopian)               | Read up on Oanda and Quantopian, sign up and used APIs to obtain historical data.                                     | Jet New      |
-| 4   | 10/5/2020 | 6     | Experimental Analysis: LSTM Forecasting on AUD_USD                             | Experiment on machine learning using Long Short-Term Memory networks for forecasting AUD_USD data for 10K timestamps. | Jet New      |
-| 5   | 16/5/2020 | 6     | Literature Review: Trading Algorithms                                          | Read up on trading algorithms in general.                                                                             | Jet New      |
-| 6   | 16/5/2020 | 4     | Implementation: MACD Indicator                                                 | Implemented MACD indicator in Python and exponential moving average with window size of 26, 12 and 9.                 | Jet New      |
-| 7   | 16/5/2020 | 4     | Implementation: MACD Strategy                                                  | Implemented MACD strategy using Pandas DataFrames column operations, and mapping of indicator to buy/sell action.     | Jet New      |
-| 8   | 16/5/2020 | 3     | Implementation: MACD Visualisation                                             | Implemented MACD visualisation of indicators using Matplotlib.                                                        | Jet New      |
-| 9   | 17/5/2020 | 8     | Literature Review: Technical Analysis                                          | Read up further on technical analysis and compile list of trading algorithms for potential implementation.            | Jet New      |
-| 10  | 23/5/2020 | 6     | Implementation: Algorithm and Strategy Interface                               | Design Object-Oriented interface of algorithms and each strategy for standardised usage.                              | Jet New      |
-| 11  | 23/5/2020 | 5     | Implementation: MACD, MFI, RSI Indicators, Strategies and Visualisation        | Implemented MACD, MFI, RSI strategies using TA library and OO interface.                                              | Jet New      |
-| 12  | 23/5/2020 | 3     | Implementation: Performance Metrics                                            | Implemented returns, alpha, beta, sharpe ratio and sortino ratio.                                                     | Jet New      |
-| 13  | 24/5/2020 | 2     | Documentation: Algorithm and Strategy Interface                                | Documented the OO interface for algorithms and strategies.                                                            | Jet New      |
-| 14  | 30/5/2020 | 4     | Literature Review: Protocol Buffer                                             | Read up documentation on gRPC for Protocol Buffer and server-client communication.                                    | Jet New      |
-| 15  | 30/5/2020 | 4     | Implementation: Strategy Server                                                | Implemented gRPC Python server for algorithms and strategies and sample client for testing.                           | Jet New      |
-| 16  | 30/5/2020 | 2     | Implementation: Indicator, Strategy and Parameter Selection on Strategy Server | Implemented functionality to customise indicator, strategy and parameters for all algorithms on the gRPC server.      | Jet New      |
-| 17  | 31/5/2020 | 4     | Installation: Web Backend Server, Docker, Postman                              | Set up Go backend server, requiring setting up of Docker and Postman, and tested functionality of backend server      | Jet New      |
-| 18  | 31/5/2020 | 5     | Documentation: Milestone 1                                                     | Write up Milestone README                                                                                             | Jet New      |
-|     | 22 Days   | 82    |                                                                                |                                                                                                                       |              |

@@ -1,3 +1,5 @@
+# Idle Trading Hero
+
 ![banner](https://user-images.githubusercontent.com/27071473/83358983-bc2ba980-a3a9-11ea-80eb-f4467c001de6.png)
 
 # Project Description
@@ -11,7 +13,7 @@ Many potential traders seek profitable passive trading, using easily understanda
 # Project Poster
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/27071473/83358984-bdf56d00-a3a9-11ea-8ab4-dce259601584.png" alt="drawing" width="50%"/>
+    <img src="https://user-images.githubusercontent.com/27071473/83369156-f3bc4500-a3ed-11ea-9a52-14aac952e08a.png" alt="drawing" width="50%"/>
 </p>
 
 # Project Ideation
