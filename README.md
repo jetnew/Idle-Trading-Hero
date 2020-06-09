@@ -101,16 +101,16 @@ The market data supplier serves to supply market data from the data source, such
 | 3. What is the benefit?                        | The supplier distributes the computational load evenly between the services in the architecture.                   |
 | 4. What is the feature specifications?         | The supplier calls the data source API periodically / listen on a stream and sends data to the message queue.      |
 
-## 3. Strategy Service
+## 3. Algorithm Server
 
-The strategy service aims to compartmentalise the computation of strategies to a separate server. The service uses a protocol to receive and supply relevant strategy data.
+The algorithm server aims to compartmentalise the computation of algorithms to a separate server. The server uses a protocol to receive and supply relevant algorithm data.
 
 | Questions                                      | Answers                                                                                                                                                                                                                     |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the user role (public/member/admin)? | The service is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
-| 2. What is the desired outcome (user goal)?    | The ervice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
-| 3. What is the benefit?                        | The service distributes the computational load evenly between the services in the architecture.                                                                                                                        |
-| 4. What is the feature specifications?         | The service is called whenever messages from the market data supplier message queue is passed. The service performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+| 1. Who is the user role (public/member/admin)? | The server is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
+| 2. What is the desired outcome (user goal)?    | The server performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
+| 3. What is the benefit?                        | The server distributes the computational load evenly between the services in the architecture.                                                                                                                        |
+| 4. What is the feature specifications?         | The server is called whenever messages from the market data supplier message queue is passed. The server performs required strategy computations, then returns the buy/sell action to the relevant destination. |
 
 # Project Log
 
@@ -135,3 +135,14 @@ The strategy service aims to compartmentalise the computation of strategies to a
 | 17  | 31/5/2020 | 4     | Installation: Web Backend Server, Docker, Postman                              | Set up Go backend server, requiring setting up of Docker and Postman, and tested functionality of backend server      | Jet New      |
 | 18  | 31/5/2020 | 8     | Documentation: Milestone 1                                                     | Write up Milestone README                                                                                             | Jet New      |
 |     | 22 Days   | 85    |                                                                                |                                                                                                                       |              |
+
+| S/N | Date                    | Hours | Task                                                                                                                         | Remarks                                                       | Completed by |
+|-----|-------------------------|-------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|--------------|
+| 1   | 27/5/2020               | 4     | https://www.notion.so/Implement-Finnhub-api-wrapper-82b4d263d72f49918468701cf4f9fc65                                         | For stocks and forex candle data. Potential use for news data | Ian Soo      |
+| 2   | 27/5/2020               | 3     | https://www.notion.so/Get-AAPL-GOOGL-SPY-VOO-data-from-finnhub-92ddf075037343d7b4905d6b1de09ce7                              | Markets we are interested in testing in                       | Ian Soo      |
+| 3   | 30/05/2020 → 01/06/2020 | 24    | https://www.notion.so/Setup-Go-web-server-with-Authentication-and-connect-to-database-ecaee36b2aaa45b68cbba66bbcbda17c       | Go api server using httprouter, jwt, sqlboiler                | Ian Soo      |
+| 4   | 30/5/2020               | 5     | https://www.notion.so/Setup-postgres-database-cf9461ca6e074c7c9b02fa43c456f44b                                               | hosted on azure                                               | Ian Soo      |
+| 5   | 30/5/2020               | 4     | https://www.notion.so/Crash-course-docker-8d122fd5cccb463fb209f925cb7e8672                                                   | to dockerise Go web server                                    | Ian Soo      |
+| 6   | 31/5/2020               | 3     | https://www.notion.so/Create-figma-mockup-from-jet-s-mockup-and-add-user-management-screens-6bebb70f7b884669bdd4bc9c82b970d2 | Create simple wireframes of milestone 1 frontend              | Ian Soo      |
+| 7   | 31/05/2020 → 01/06/2020 | 16    | https://www.notion.so/Create-Vuejs-frontend-with-auth-986092694be7470294d71d7b2320bf69                                       | Vuejs SPA, vuex, vue-router                                   | Ian Soo      |
+|     | 4 Days                  | 59    

@@ -1,4 +1,4 @@
-# Idle Trading Hero - Milestone 1
+# Idle Trading Hero
 
 ![banner](https://user-images.githubusercontent.com/27071473/83358983-bc2ba980-a3a9-11ea-80eb-f4467c001de6.png)
 
@@ -101,13 +101,14 @@ The market data supplier serves to supply market data from the data source, such
 | 3. What is the benefit?                        | The supplier distributes the computational load evenly between the services in the architecture.                   |
 | 4. What is the feature specifications?         | The supplier calls the data source API periodically / listen on a stream and sends data to the message queue.      |
 
-## 3. Strategy Service
+## 3. Algorithm Server
 
-The strategy service aims to compartmentalise the computation of strategies to a separate server. The service uses a protocol to receive and supply relevant strategy data.
+The algorithm server aims to compartmentalise the computation of algorithms to a separate server. The server uses a protocol to receive and supply relevant algorithm data.
 
 | Questions                                      | Answers                                                                                                                                                                                                                     |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Who is the user role (public/member/admin)? | The service is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
-| 2. What is the desired outcome (user goal)?    | The ervice performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
-| 3. What is the benefit?                        | The service distributes the computational load evenly between the services in the architecture.                                                                                                                        |
-| 4. What is the feature specifications?         | The service is called whenever messages from the market data supplier message queue is passed. The service performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+| 1. Who is the user role (public/member/admin)? | The server is handled by the admin for creating/deleting new strategies.                                                                                                                                              |
+| 2. What is the desired outcome (user goal)?    | The server performs strategy computations before returning the buy/sell action, as well as provides performance measurements when requested.                                                                          |
+| 3. What is the benefit?                        | The server distributes the computational load evenly between the services in the architecture.                                                                                                                        |
+| 4. What is the feature specifications?         | The server is called whenever messages from the market data supplier message queue is passed. The server performs required strategy computations, then returns the buy/sell action to the relevant destination. |
+
