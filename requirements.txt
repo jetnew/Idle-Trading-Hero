@@ -1,0 +1,9 @@
+grpcio==1.29.0
+matplotlib==3.2.1
+numpy==1.18.4
+pandas==1.0.4
+protobuf==3.12.2
+ta==0.5.25
+requests
+yfinance
+yahoo_earnings_calendar

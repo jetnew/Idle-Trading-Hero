@@ -3,7 +3,7 @@ import requests
 
 from .base import *
 
-def getCandles(symbol, resolution, fromTime=None, toTime=None, count=None, format='json', adjusted='false'):
+def get_candles(symbol, resolution, fromTime=None, toTime=None, count=None, format='json', adjusted='false'):
     if resolution not in set(item.value for item in Resolution):
         raise RuntimeError(f'Invalid resolution {resolution}')
     if count is None and (fromTime is None or toTime is None):
@@ -14,7 +14,7 @@ def getCandles(symbol, resolution, fromTime=None, toTime=None, count=None, forma
     else:
         url = f'{BASE_URL}/forex/candle?symbol={symbol}&resolution={resolution}&from={fromTime}&to={toTime}&format={format}&adjusted={adjusted}'
 
-    url = addToken(url)
+    url = add_token(url)
 
     r = requests.get(url)
     
@@ -23,7 +23,7 @@ def getCandles(symbol, resolution, fromTime=None, toTime=None, count=None, forma
     data = r.json()
 
     if data['s'] == 'no_data':
-        fillNoDataCandles(data)
+        fill_no_data_candles(data)
 
     del data['s']
 

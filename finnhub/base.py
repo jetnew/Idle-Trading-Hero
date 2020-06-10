@@ -14,13 +14,13 @@ class Resolution(Enum):
     WEEK = 'W'
     MONTH = 'M'
 
-def addToken(url, isFirst=False):
+def add_token(url, isFirst=False):
     if isFirst: 
         return f'{url}?token={token}'
     
     return f'{url}&token={token}'
 
-def fillNoDataCandles(data):
+def fill_no_data_candles(data):
     data['c'] = []
     data['h'] = []
     data['l'] = []
