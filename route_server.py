@@ -3,10 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import json
 
-df_aapl = pd.read_json('data/data3/AAPL-20000103-20200525.json')
-df_googl = pd.read_json('data/data3/GOOGL-20040819-20200525.json')
-df_spy = pd.read_json('data/data3/SPY-20000103-20200525.json')
-df_voo = pd.read_json('data/data3/VOO-20100909-20200525.json')
+df_aapl = pd.read_json('data/data3/candles/AAPL-20000103-20200525.json')
+df_googl = pd.read_json('data/data3/candles/GOOGL-20040819-20200525.json')
+df_spy = pd.read_json('data/data3/candles/SPY-20000103-20200525.json')
+df_voo = pd.read_json('data/data3/candles/VOO-20100909-20200525.json')
 
 import time
 import logging
@@ -66,7 +66,14 @@ class RouteServicer(route_pb2_grpc.RouteServicer):
               for i in range(len(columns))]
         return route_pb2.History(TS=TS)
     
+    def GetTradeHistory(self, request, context)
+    
+    def GetActionHistory(self, request, context):
+        """Get action history"""
+        pass
+    
     def GetPerformances(self, request, context):
+        """Get performance history"""
         k = request.Length
         columns = self.algorithm.performance_col
         matrix = self.algorithm.indicator[columns].values[-k:,:].T.tolist()
