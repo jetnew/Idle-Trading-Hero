@@ -30,9 +30,9 @@ import strategy_pb2
 import strategy_pb2_grpc
 
 Strategies = {
-    "MACD": MACDStrategy,
-    "MFI": MFIStrategy,
-    "RSI": RSIStrategy,
+    "macd": MACDStrategy,
+    "mfi": MFIStrategy,
+    "rsi": RSIStrategy,
 }
 
 import threading

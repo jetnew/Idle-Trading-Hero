@@ -77,7 +77,7 @@ class Algorithm:
         if observation:  # for testing
             self.accept(observation)
         else:  # actual call
-            observation = pd.Series(self.oanda.get_data("AUD_USD", 1, "S5")[0])
+            observation = pd.Series(self.oanda.get_data(self.instrument, 1, "S5")[0])
             self.accept(observation)
             self.strategy.action(self.indicator)
             action = self.indicator["action"].iloc[-1]
