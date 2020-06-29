@@ -1,5 +1,8 @@
 config.yaml
 
+### quant_env ###
+quant_env
+
 # Created by https://www.gitignore.io/api/linux,macos,python,windows,virtualenv,visualstudio,jupyternotebooks,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=linux,macos,python,windows,virtualenv,visualstudio,jupyternotebooks,visualstudiocode
 
