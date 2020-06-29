@@ -35,7 +35,7 @@ def testRunStrategy(strategy_id):
 
     start_algo_param = strategy_pb2.StartAlgorithmParam(ID=strategy_id)
 
-    start_algo_res = stub.Start(start_algo_param)
+    start_algo_res = stub.StartAlgorithm(start_algo_param)
 
     if start_algo_res.Error != "":
         print(strategy_id, "failed to start", start_algo_res.Error)

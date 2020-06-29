@@ -21,13 +21,13 @@ class StrategyServiceStub(object):
                 request_serializer=strategy__pb2.Selection.SerializeToString,
                 response_deserializer=strategy__pb2.Statistics.FromString,
                 )
-        self.Start = channel.unary_unary(
-                '/strategy_proto.StrategyService/Start',
+        self.StartAlgorithm = channel.unary_unary(
+                '/strategy_proto.StrategyService/StartAlgorithm',
                 request_serializer=strategy__pb2.StartAlgorithmParam.SerializeToString,
                 response_deserializer=strategy__pb2.StartAlgorithmResponse.FromString,
                 )
-        self.Stop = channel.unary_unary(
-                '/strategy_proto.StrategyService/Stop',
+        self.StopAlgorithm = channel.unary_unary(
+                '/strategy_proto.StrategyService/StopAlgorithm',
                 request_serializer=strategy__pb2.StopAlgorithmParam.SerializeToString,
                 response_deserializer=strategy__pb2.StopAlgorithmResponse.FromString,
                 )
@@ -70,13 +70,13 @@ class StrategyServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Start(self, request, context):
+    def StartAlgorithm(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Stop(self, request, context):
+    def StopAlgorithm(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -124,13 +124,13 @@ def add_StrategyServiceServicer_to_server(servicer, server):
                     request_deserializer=strategy__pb2.Selection.FromString,
                     response_serializer=strategy__pb2.Statistics.SerializeToString,
             ),
-            'Start': grpc.unary_unary_rpc_method_handler(
-                    servicer.Start,
+            'StartAlgorithm': grpc.unary_unary_rpc_method_handler(
+                    servicer.StartAlgorithm,
                     request_deserializer=strategy__pb2.StartAlgorithmParam.FromString,
                     response_serializer=strategy__pb2.StartAlgorithmResponse.SerializeToString,
             ),
-            'Stop': grpc.unary_unary_rpc_method_handler(
-                    servicer.Stop,
+            'StopAlgorithm': grpc.unary_unary_rpc_method_handler(
+                    servicer.StopAlgorithm,
                     request_deserializer=strategy__pb2.StopAlgorithmParam.FromString,
                     response_serializer=strategy__pb2.StopAlgorithmResponse.SerializeToString,
             ),
@@ -188,7 +188,7 @@ class StrategyService(object):
             call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Start(request,
+    def StartAlgorithm(request,
             target,
             options=(),
             channel_credentials=None,
@@ -197,14 +197,14 @@ class StrategyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/Start',
+        return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/StartAlgorithm',
             strategy__pb2.StartAlgorithmParam.SerializeToString,
             strategy__pb2.StartAlgorithmResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Stop(request,
+    def StopAlgorithm(request,
             target,
             options=(),
             channel_credentials=None,
@@ -213,7 +213,7 @@ class StrategyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/Stop',
+        return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/StopAlgorithm',
             strategy__pb2.StopAlgorithmParam.SerializeToString,
             strategy__pb2.StopAlgorithmResponse.FromString,
             options, channel_credentials,

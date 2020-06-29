@@ -15,9 +15,9 @@ service StrategyService {
     // Initialise indicator, strategy, parameters
     rpc InitialiseAlgorithm(Selection) returns (Statistics) {}
     
-    rpc Start(StartAlgorithmParam) returns (StartAlgorithmResponse) {}
+    rpc StartAlgorithm(StartAlgorithmParam) returns (StartAlgorithmResponse) {}
 
-    rpc Stop(StopAlgorithmParam) returns (StopAlgorithmResponse) {}
+    rpc StopAlgorithm(StopAlgorithmParam) returns (StopAlgorithmResponse) {}
 
     rpc Act(Tmp) returns (Statistics) {}
     

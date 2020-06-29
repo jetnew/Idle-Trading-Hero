@@ -73,7 +73,7 @@ class StrategyService(strategy_pb2_grpc.StrategyServiceServicer):
 
         return strategy_pb2.Statistics(**algorithm.statistics())
 
-    def Start(self, request, context):
+    def StartAlgorithm(self, request, context):
         strategy_id = request.ID
 
         algorithm = self.algorithm_dict[strategy_id]
@@ -93,7 +93,7 @@ class StrategyService(strategy_pb2_grpc.StrategyServiceServicer):
 
         return strategy_pb2.StartAlgorithmResponse(Error=None)
 
-    def Stop(self, request, context):
+    def StopAlgorithm(self, request, context):
         strategy_id = request.ID
 
         algorithm = self.algorithm_dict[strategy_id]
