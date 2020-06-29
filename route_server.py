@@ -12,18 +12,20 @@ import time
 import logging
 from algorithms import *
 
+import yaml
+import oandapyV20
+with open('config.yaml') as f:
+    config = yaml.load(f, Loader=yaml.FullLoader)
+access_token = config['access_token']
+accountID = config['accountID']
+
+from oanda import Oanda
+oanda = Oanda(accountID, access_token)
+
 from concurrent import futures
 import grpc
 import route_pb2
 import route_pb2_grpc
-
-Assets = {
-    'AAPL': df_aapl.loc[:100],
-    'GOOGL': df_googl.loc[:100],
-    'SPY': df_spy.loc[:100],
-    'VOO': df_voo.loc[:100],
-}
-
 
 Strategies = {
     'MACD': MACDStrategy,
@@ -37,12 +39,21 @@ class RouteServicer(route_pb2_grpc.RouteServicer):
         self.req_strat = request.Strategy
         self.req_params = request.Parameters
         self.req_capital = request.Capital
+        self.req_instrument = request.Instrument
+        self.req_granularity = request.Granularity
         
         self.strategy = Strategies[self.req_strat](parameters=self.req_params)
-        self.algorithm = Algorithm(indicator=Assets[self.req_asset],
-                                   strategy=self.strategy,
-                                   capital=self.req_capital)
-        self.algorithm.act(Assets[self.req_asset].loc[100])
+        self.oanda = Oanda(accountID, access_token)
+        self.algorithm = Algorithm(
+            oanda=oanda,
+            instrument=self.req_instrument,
+            granularity=self.req_granularity,
+            strategy=self.strategy,
+            capital=self.req_capital)
+        return route_pb2.Statistics(**self.algorithm.statistics())
+    
+    def Act(self, request, context):
+        self.algorithm.act()
         return route_pb2.Statistics(**self.algorithm.statistics())
     
     def GetStatistics(self, request, context):
@@ -65,12 +76,6 @@ class RouteServicer(route_pb2_grpc.RouteServicer):
                                    Value=matrix[i])
               for i in range(len(columns))]
         return route_pb2.History(TS=TS)
-    
-    def GetTradeHistory(self, request, context)
-    
-    def GetActionHistory(self, request, context):
-        """Get action history"""
-        pass
     
     def GetPerformances(self, request, context):
         """Get performance history"""

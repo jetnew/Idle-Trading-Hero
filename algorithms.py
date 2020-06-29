@@ -1,3 +1,4 @@
+from datetime import datetime
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -5,8 +6,14 @@ from oanda import Oanda
 
 
 class Algorithm:
-    def __init__(self, indicator, strategy, capital):
-        self.indicator = indicator  # e.g. pd.DataFrame, AUD-USD
+    def __init__(self, oanda, instrument, granularity, strategy, capital, indicator=None):
+        self.oanda = oanda  # Oanda class to call oanda api
+        self.instrument = instrument  # e.g. 'AUD_USD'
+        self.granularity = granularity  # e.g. 'S5'
+        if indicator:
+            self.indicator = indicator  # e.g. pd.DataFrame, AUD-USD
+        else:
+            self.indicator = oanda.get_historic(instrument, 1000, granularity)
         self.strategy = strategy  # e.g. Strategy, MACDStrategy
         self.capital = capital  # e.g. 1000
         self.data_col = ['v', 't', 'o', 'l', 'c']
@@ -19,6 +26,8 @@ class Algorithm:
                                 'sharpe',
                                 'annual_sharpe',
                                 'sortino']
+        for col in self.performance_col:
+            self.indicator[col] = None
         
     def accept(self, observation):
         # Integrate incoming new data
@@ -39,10 +48,23 @@ class Algorithm:
         self.indicator['sortino'] = self.indicator['return'].mean() / \
                                     self.indicator[self.indicator['return'] < 0]['return'].std()
         
-        
-    def act(self, observation):
-        self.accept(observation)
-        self.strategy.action(self.indicator)
+    def act(self, observation=None):
+        if observation:  # for testing
+            self.accept(observation)
+        else:  # actual call
+            observation = pd.Series(self.oanda.get_data('AUD_USD', 1, 'S5')[0])
+            self.accept(observation)
+            self.strategy.action(self.indicator)
+            action = self.indicator['action'].iloc[-1]
+            if action == 1:
+                oanda.buy(self.instrument, 1)
+                print("BUY")
+            elif action == -1:
+                oanda.buy(self.instrument, -1)
+                print("SELL")
+            else:
+                print("NOTHING")
+
         self.balance()
         self.performance()
         

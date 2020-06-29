@@ -20,6 +20,11 @@ class RouteStub(object):
                 request_serializer=route__pb2.Selection.SerializeToString,
                 response_deserializer=route__pb2.Statistics.FromString,
                 )
+        self.Act = channel.unary_unary(
+                '/Route/Act',
+                request_serializer=route__pb2.Tmp.SerializeToString,
+                response_deserializer=route__pb2.Statistics.FromString,
+                )
         self.GetStatistics = channel.unary_unary(
                 '/Route/GetStatistics',
                 request_serializer=route__pb2.Tmp.SerializeToString,
@@ -50,6 +55,12 @@ class RouteServicer(object):
     def InitialiseAlgorithm(self, request, context):
         """Initialise indicator, strategy, parameters
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Act(self, request, context):
+        """Missing associated documentation comment in .proto file"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -88,6 +99,11 @@ def add_RouteServicer_to_server(servicer, server):
             'InitialiseAlgorithm': grpc.unary_unary_rpc_method_handler(
                     servicer.InitialiseAlgorithm,
                     request_deserializer=route__pb2.Selection.FromString,
+                    response_serializer=route__pb2.Statistics.SerializeToString,
+            ),
+            'Act': grpc.unary_unary_rpc_method_handler(
+                    servicer.Act,
+                    request_deserializer=route__pb2.Tmp.FromString,
                     response_serializer=route__pb2.Statistics.SerializeToString,
             ),
             'GetStatistics': grpc.unary_unary_rpc_method_handler(
@@ -134,6 +150,22 @@ class Route(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Route/InitialiseAlgorithm',
             route__pb2.Selection.SerializeToString,
+            route__pb2.Statistics.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Act(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Route/Act',
+            route__pb2.Tmp.SerializeToString,
             route__pb2.Statistics.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -13,6 +13,8 @@ service Route {
     // Initialise indicator, strategy, parameters
     rpc InitialiseAlgorithm(Selection) returns (Statistics) {}
     
+    rpc Act(Tmp) returns (Statistics) {}
+    
     // Get statistics
     rpc GetStatistics(Tmp) returns (Statistics) {}
     
@@ -26,8 +28,11 @@ service Route {
     rpc GetPerformances(Length) returns (History) {}
 }
 
+
+// TODO: RENAME LENGTH
 message Length {
     int32 Length = 1;
+    string ID = 2;
 }
 
 // Dictionary entry
@@ -50,6 +55,9 @@ message Selection {
     string Strategy = 2;
     google.protobuf.Struct Parameters = 3;
     int32 Capital = 4;
+    string Instrument = 5;
+    string Granularity = 6;
+    string ID = 7;
 }
 
 message Statistics {
