@@ -1,38 +1,43 @@
 // RUN THE FOLLOWING COMMAND AFTER EVERY CHANGE
-// $ python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. route.proto
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. strategy.proto
 
 
 syntax = "proto3";
 
+package strategy_proto;
+
 import "google/protobuf/struct.proto";
 
-service Route {
+service StrategyService {
     // Template
     // rpc Function(Request) returns (Message) {}
     
     // Initialise indicator, strategy, parameters
     rpc InitialiseAlgorithm(Selection) returns (Statistics) {}
     
+    rpc Start(StartAlgorithmParam) returns (StartAlgorithmResponse) {}
+
+    rpc Stop(StopAlgorithmParam) returns (StopAlgorithmResponse) {}
+
     rpc Act(Tmp) returns (Statistics) {}
     
     // Get statistics
     rpc GetStatistics(Tmp) returns (Statistics) {}
     
     // Get past data
-    rpc GetData(Length) returns (History) {}
+    rpc GetData(HistoryParams) returns (History) {}
     
     // Get past indicators
-    rpc GetIndicators(Length) returns (History) {}
+    rpc GetIndicators(HistoryParams) returns (History) {}
     
     // Get past performances
-    rpc GetPerformances(Length) returns (History) {}
+    rpc GetPerformances(HistoryParams) returns (History) {}
 }
 
 
-// TODO: RENAME LENGTH
-message Length {
-    int32 Length = 1;
-    string ID = 2;
+message HistoryParams {
+    string ID = 1;
+    int32 Length = 2;
 }
 
 // Dictionary entry
@@ -47,17 +52,34 @@ message History {
 }
  
 message Tmp {
-    int32 tmp = 1;
+    string ID = 1;
+    int32 tmp = 2;
 }
- 
+
 message Selection {
-    string Asset = 1;
-    string Strategy = 2;
-    google.protobuf.Struct Parameters = 3;
-    int32 Capital = 4;
-    string Instrument = 5;
-    string Granularity = 6;
-    string ID = 7;
+    string ID = 1;
+    string Asset = 2;
+    string Strategy = 3;
+    google.protobuf.Struct Parameters = 4;
+    int32 Capital = 5;
+    string Instrument = 6;
+    string Granularity = 7;
+}
+
+message StartAlgorithmParam {
+    string ID = 1;
+}
+
+message StartAlgorithmResponse {
+    string Error = 1;
+}
+
+message StopAlgorithmParam {
+    string ID = 1;
+}
+
+message StopAlgorithmResponse {
+    string Error = 1;
 }
 
 message Statistics {

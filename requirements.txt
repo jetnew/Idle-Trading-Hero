@@ -1,4 +1,5 @@
-grpcio==1.29.0
+grpcio==1.30.0
+grpcio-tools==1.30.0
 matplotlib==3.2.1
 numpy==1.18.4
 pandas==1.0.4
@@ -7,3 +8,6 @@ ta==0.5.25
 requests
 yfinance
 yahoo_earnings_calendar
+oandapyV20
+pyyaml
+jupyter
