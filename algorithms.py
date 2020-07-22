@@ -4,6 +4,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from oanda import Oanda
+import requests
+import os
+import json
+
+event_url = os.environ["EVENT_URL"]
 
 
 class Algorithm:
@@ -29,7 +34,7 @@ class Algorithm:
             self.indicator = oanda.get_historic(instrument, 1000, granularity)
         self.strategy = strategy  # e.g. Strategy, MACDStrategy
         self.capital = capital  # e.g. 1000
-        self.data_col = ["v", "t", "o", "l", "c"]
+        self.data_col = ["v", "t", "o", "h", "l", "c"]
         self.performance_col = [
             "action",
             "balance",
@@ -78,15 +83,20 @@ class Algorithm:
             self.accept(observation)
         else:  # actual call
             observation = pd.Series(self.oanda.get_data(self.instrument, 1, "S5")[0])
+            # if observation["t"] == self.indicator["t"].iloc[-1]:
+            #     return
+
             self.accept(observation)
             self.strategy.action(self.indicator)
             action = self.indicator["action"].iloc[-1]
             if action == 1:
                 self.oanda.buy(self.instrument, 1)
                 print(self.id, "BUY")
+                self.create_event("buy", 1)
             elif action == -1:
                 self.oanda.buy(self.instrument, -1)
                 print(self.id, "SELL")
+                self.create_event("sell", 1)
             else:
                 print(self.id, "NOTHING")
 
@@ -110,6 +120,17 @@ class Algorithm:
         plt.legend(loc="best")
         plt.show()
 
+    def create_event(self, action, amount):
+        payload = json.dumps(
+            {
+                "strategyId": self.id,
+                "action": action,
+                "amount": amount,
+                "eventOn": int(time.time()),
+            }
+        )
+        r = requests.post(event_url, data=payload)
+
 
 from ta.trend import MACD
 
@@ -119,7 +140,7 @@ class MACDStrategy:
         self.parameters = (
             parameters  # e.g. Dictionary, {'ema26':26, 'ema12':12, 'ema9':9}
         )
-        self.indicator_col = ["trend_macd", "trend_macd_signal", "trend_macd_diff"]
+        self.indicator_col = ["trend_macd", "trend_macd_signal"]
 
     def action(self, indicator):
         # Derive the action based on past data
