@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
+import asyncio
 
 df_aapl = pd.read_json("data/data3/candles/AAPL-20000103-20200525.json")
 df_googl = pd.read_json("data/data3/candles/GOOGL-20040819-20200525.json")
@@ -137,7 +138,8 @@ class StrategyService(strategy_pb2_grpc.StrategyServiceServicer):
 
         algorithm = self.algorithm_dict[strategy_id]
 
-        columns = algorithm.strategy.indicator_col
+        columns = algorithm.strategy.indicator_col[:]
+        columns.append("t")
         matrix = algorithm.indicator[columns].values[-k:, :].T.tolist()
         TS = [
             strategy_pb2.TimeSeries(Key=columns[i], Value=matrix[i])
@@ -152,12 +154,16 @@ class StrategyService(strategy_pb2_grpc.StrategyServiceServicer):
 
         algorithm = self.algorithm_dict[strategy_id]
 
-        columns = algorithm.performance_col
+        columns = algorithm.performance_col[:]
+        print(k, columns)
+        columns.append("t")
         matrix = algorithm.indicator[columns].values[-k:, :].T.tolist()
+        print(matrix)
         TS = [
             strategy_pb2.TimeSeries(Key=columns[i], Value=matrix[i])
             for i in range(len(columns))
         ]
+        print(TS)
         return strategy_pb2.History(TS=TS)
 
 
@@ -166,7 +172,15 @@ def serve():
     strategy_pb2_grpc.add_StrategyServiceServicer_to_server(StrategyService(), server)
     server.add_insecure_port("[::]:50051")
     server.start()
-    time.sleep(1000)
+    print("started")
+
+    loop = asyncio.get_event_loop()
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt:
+        print()
+    finally:
+        loop.close()
 
 
 if __name__ == "__main__":
