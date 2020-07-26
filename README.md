@@ -48,7 +48,7 @@ Available Strategies:
 
 Moving Average Convergence Divergence (MACD)
 
-* Background
+* About
   * The Exponential Moving Average ([EMA](https://www.investopedia.com/terms/e/ema.asp)) is computed by taking the exponentially-weighted average of the past n days of the variable.
 
 * Detail
@@ -58,20 +58,33 @@ Moving Average Convergence Divergence (MACD)
 
 Relative Strength Index
 
+* About
+  * The Relative Strength Index ([RSI](https://www.investopedia.com/terms/r/rsi.asp)) is a momentum indicator that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of the instrument.
+
 * Detail
   * The RSI strategy indicates whether an asset is considered overbought or oversold.
   * RSI is computed by the following formula:
 
     ![image](https://user-images.githubusercontent.com/27071473/87248568-aae7b980-c48c-11ea-8e91-831ff9c1ff6d.png)
 
-  * RSI ranges from 0 to 100. When RSI is lower than 30, 
+  * RSI ranges from 0 to 100. When RSI is lower than 30, it indicates an oversold or undervalued condition.
+  * When RSI is higher than 70, it indicates an overbought or overvalued condition, and may be primed for a reversal or pullback in price.
 
 Money Flow Index (MFI)
 
-* Background
-  
+* About
+  * The Money Flow Index ([MFI](https://school.stockcharts.com/doku.php?id=technical_indicators:money_flow_index_mfi)) is an oscillator that uses both price and volume to measure buying and selling pressure.
+
+* Detail
+  * The MFI is usually computed on a 14-day period.
+  * Typical Price = (High + Low + Close) / 3
+  * Raw Money Flow = Typical Price * Volume
+  * Money Flow Ratio = (14-period Positive Money Flow) / (14-period Negative Money Flow)
+  * Money Flow Index = 100 - 100/(1+Money Flow Ratio)
 
 ### Algorithm Parameter Selection
+
+Algorithm Parameter Selection is a dashboard that allows the trader to easily configure and customise the trading strategy to the 
 
 ## 3. Performance Evaluation & Notification
 
