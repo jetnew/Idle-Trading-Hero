@@ -155,16 +155,23 @@ class StrategyService(strategy_pb2_grpc.StrategyServiceServicer):
         algorithm = self.algorithm_dict[strategy_id]
 
         columns = algorithm.performance_col[:]
-        print(k, columns)
         columns.append("t")
         matrix = algorithm.indicator[columns].values[-k:, :].T.tolist()
-        print(matrix)
         TS = [
             strategy_pb2.TimeSeries(Key=columns[i], Value=matrix[i])
             for i in range(len(columns))
         ]
-        print(TS)
         return strategy_pb2.History(TS=TS)
+
+    def GetBalance(self, request, context):
+        """Get Balance"""
+        strategy_id = request.ID
+
+        algorithm = self.algorithm_dict[strategy_id]
+
+        balance = algorithm.indicator[["balance"]].values[-1, :].T.tolist()[0]
+
+        return strategy_pb2.GetBalanceRes(Balance=balance)
 
 
 def serve():

@@ -1,5 +1,8 @@
 // RUN THE FOLLOWING COMMAND AFTER EVERY CHANGE
-// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. strategy.proto
+// for python
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. strategy.proto 
+// for go
+/// protoc -I . --go_out=plugins=grpc:pb/strategy strategy.proto
 
 
 syntax = "proto3";
@@ -32,6 +35,9 @@ service StrategyService {
     
     // Get past performances
     rpc GetPerformances(HistoryParams) returns (History) {}
+
+    // Get strategy balance
+    rpc GetBalance(GetBalanceParam) returns (GetBalanceRes) {}
 }
 
 
@@ -80,6 +86,14 @@ message StopAlgorithmParam {
 
 message StopAlgorithmResponse {
     string Error = 1;
+}
+
+message GetBalanceParam {
+    string ID = 1;
+}
+
+message GetBalanceRes {
+    double Balance = 1;
 }
 
 message Statistics {

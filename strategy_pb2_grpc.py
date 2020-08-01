@@ -56,6 +56,11 @@ class StrategyServiceStub(object):
                 request_serializer=strategy__pb2.HistoryParams.SerializeToString,
                 response_deserializer=strategy__pb2.History.FromString,
                 )
+        self.GetBalance = channel.unary_unary(
+                '/strategy_proto.StrategyService/GetBalance',
+                request_serializer=strategy__pb2.GetBalanceParam.SerializeToString,
+                response_deserializer=strategy__pb2.GetBalanceRes.FromString,
+                )
 
 
 class StrategyServiceServicer(object):
@@ -116,6 +121,13 @@ class StrategyServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetBalance(self, request, context):
+        """Get strategy balance
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_StrategyServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -158,6 +170,11 @@ def add_StrategyServiceServicer_to_server(servicer, server):
                     servicer.GetPerformances,
                     request_deserializer=strategy__pb2.HistoryParams.FromString,
                     response_serializer=strategy__pb2.History.SerializeToString,
+            ),
+            'GetBalance': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBalance,
+                    request_deserializer=strategy__pb2.GetBalanceParam.FromString,
+                    response_serializer=strategy__pb2.GetBalanceRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -296,5 +313,21 @@ class StrategyService(object):
         return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/GetPerformances',
             strategy__pb2.HistoryParams.SerializeToString,
             strategy__pb2.History.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBalance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/strategy_proto.StrategyService/GetBalance',
+            strategy__pb2.GetBalanceParam.SerializeToString,
+            strategy__pb2.GetBalanceRes.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

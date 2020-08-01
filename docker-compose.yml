@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    dev:
+        image: idle-trading-hero-strategies:latest
+        environment:
+            - EVENT_URL
+        build:
+            context: ./
+            target: dev
+        ports:
+            - '50051:50051'
+        volumes:
+            - ./:/app

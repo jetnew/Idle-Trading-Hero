@@ -11,3 +11,4 @@ yahoo_earnings_calendar
 oandapyV20
 pyyaml
 jupyter
+Flask
